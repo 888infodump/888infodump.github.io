@@ -57,22 +57,22 @@
     <h2>1. Installation</h2>
     <p>
         <strong>Ubuntu/Debian:</strong><br>
-        <code>sudo apt update</code><br>
-        <code>sudo apt install mysql-server</code>
+        <pre><code>sudo apt update</pre></code><br>
+        <pre><code>sudo apt install mysql-server</pre></code>
     </p>
     <p>
         <strong>CentOS/RHEL:</strong><br>
-        <code>sudo yum install mysql-server</code>
+        <pre><code>sudo yum install mysql-server</pre></code>
     </p>
     <p>
         <strong>Start MySQL Service:</strong><br>
-        <code>sudo systemctl start mysql</code><br>
-        <code>sudo systemctl enable mysql</code>
+        <pre><code>sudo systemctl start mysql</pre></code><br>
+        <pre><code>sudo systemctl enable mysql</pre></code>
     </p>
 
     <h2>2. Securing MySQL Installation</h2>
     <p>
-        <code>sudo mysql_secure_installation</code>
+        <pre><code>sudo mysql_secure_installation</pre></code>
     </p>
     <p>
         Follow the prompts to set a root password and secure your installation.
@@ -80,7 +80,7 @@
 
     <h2>3. Connecting to MySQL</h2>
     <p>
-        <code>mysql -u root -p</code>
+        <pre><code>mysql -u root -p</pre></code>
     </p>
     <p>
         Log in to MySQL as the root user.
@@ -89,122 +89,122 @@
     <h2>4. Basic MySQL Commands</h2>
     <p>
         <strong>Show Databases:</strong><br>
-        <code>SHOW DATABASES;</code>
+        <pre><code>SHOW DATABASES;</pre></code>
     </p>
     <p>
         <strong>Create a Database:</strong><br>
-        <code>CREATE DATABASE mydatabase;</code>
+        <pre><code>CREATE DATABASE mydatabase;</pre></code>
     </p>
     <p>
         <strong>Use a Database:</strong><br>
-        <code>USE mydatabase;</code>
+        <pre><code>USE mydatabase;</pre></code>
     </p>
     <p>
         <strong>Show Tables:</strong><br>
-        <code>SHOW TABLES;</code>
+        <pre><code>SHOW TABLES;</pre></code>
     </p>
     <p>
         <strong>Create a Table:</strong><br>
-        <code>
+        <pre><code>
         CREATE TABLE users (<br>
             id INT AUTO_INCREMENT PRIMARY KEY,<br>
             username VARCHAR(50),<br>
             password VARCHAR(255)<br>
         );
-        </code>
+        </pre></code>
     </p>
     <p>
         <strong>Insert Data:</strong><br>
-        <code>INSERT INTO users (username, password) VALUES ('admin', 'password123');</code>
+        <pre><code>INSERT INTO users (username, password) VALUES ('admin', 'password123');</pre></code>
     </p>
     <p>
         <strong>Select Data:</strong><br>
-        <code>SELECT * FROM users;</code>
+        <pre><code>SELECT * FROM users;</pre></code>
     </p>
     <p>
         <strong>Update Data:</strong><br>
-        <code>UPDATE users SET password='newpassword' WHERE username='admin';</code>
+        <pre><code>UPDATE users SET password='newpassword' WHERE username='admin';</pre></code>
     </p>
     <p>
         <strong>Delete Data:</strong><br>
-        <code>DELETE FROM users WHERE username='admin';</code>
+        <pre><code>DELETE FROM users WHERE username='admin';</pre></code>
     </p>
 
     <h2>5. User Management</h2>
     <p>
         <strong>Create a New User:</strong><br>
-        <code>CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';</code>
+        <pre><code>CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';</pre></code>
     </p>
     <p>
         <strong>Grant Privileges:</strong><br>
-        <code>GRANT ALL PRIVILEGES ON mydatabase.* TO 'newuser'@'localhost';</code>
+        <pre><code>GRANT ALL PRIVILEGES ON mydatabase.* TO 'newuser'@'localhost';</pre></code>
     </p>
     <p>
         <strong>Show Grants for a User:</strong><br>
-        <code>SHOW GRANTS FOR 'newuser'@'localhost';</code>
+        <pre><code>SHOW GRANTS FOR 'newuser'@'localhost';</pre></code>
     </p>
     <p>
         <strong>Revoke Privileges:</strong><br>
-        <code>REVOKE ALL PRIVILEGES ON mydatabase.* FROM 'newuser'@'localhost';</code>
+        <pre><code>REVOKE ALL PRIVILEGES ON mydatabase.* FROM 'newuser'@'localhost';</pre></code>
     </p>
 
     <h2>6. Backup and Restore</h2>
     <p>
         <strong>Backup a Database:</strong><br>
-        <code>mysqldump -u root -p mydatabase > mydatabase_backup.sql</code>
+        <pre><code>mysqldump -u root -p mydatabase > mydatabase_backup.sql</pre></code>
     </p>
     <p>
         <strong>Restore a Database:</strong><br>
-        <code>mysql -u root -p mydatabase < mydatabase_backup.sql</code>
+        <pre><code>mysql -u root -p mydatabase < mydatabase_backup.sql</pre></code>
     </p>
 
     <h2>7. Using SQL Queries</h2>
     <p>
         <strong>Where Clause:</strong><br>
-        <code>SELECT * FROM users WHERE username='admin';</code>
+        <pre><code>SELECT * FROM users WHERE username='admin';</pre></code>
     </p>
     <p>
         <strong>Order By:</strong><br>
-        <code>SELECT * FROM users ORDER BY id DESC;</code>
+        <pre><code>SELECT * FROM users ORDER BY id DESC;</pre></code>
     </p>
     <p>
         <strong>Join Tables:</strong><br>
-        <code>
+        <pre><code>
         SELECT users.username, orders.amount<br>
         FROM users<br>
         JOIN orders ON users.id = orders.user_id;
-        </code>
+        </pre></code>
     </p>
 
     <h2>8. Handling Errors</h2>
     <p>
         <strong>Check Error Codes:</strong><br>
-        <code>SHOW ERRORS;</code>
+        <pre><code>SHOW ERRORS;</pre></code>
     </p>
     <p>
         <strong>Display Last Error:</strong><br>
-        <code>SELECT LAST_INSERT_ID();</code>
+        <pre><code>SELECT LAST_INSERT_ID();</pre></code>
     </p>
 
     <h2>9. Optimizing Performance</h2>
     <p>
         <strong>Indexing:</strong><br>
-        <code>CREATE INDEX idx_username ON users (username);</code>
+        <pre><code>CREATE INDEX idx_username ON users (username);</pre></code>
     </p>
     <p>
         <strong>Analyze Table:</strong><br>
-        <code>ANALYZE TABLE users;</code>
+        <pre><code>ANALYZE TABLE users;</pre></code>
     </p>
 
     <h2>10. Exiting MySQL</h2>
     <p>
-        <code>EXIT;</code>
+        <pre><code>EXIT;</pre></code>
     </p>
 
     <h2>Example Scenarios</h2>
     <p>
         <strong>1. Creating a Database and Table:</strong><br>
-        <code>
+        <pre><code>
         CREATE DATABASE shop;<br>
         USE shop;<br>
         CREATE TABLE products (<br>
@@ -212,26 +212,26 @@
             name VARCHAR(100),<br>
             price DECIMAL(10, 2)<br>
         );
-        </code>
+        </pre></code>
     </p>
     <p>
         <strong>2. Inserting Data into the Table:</strong><br>
-        <code>
+        <pre><code>
         INSERT INTO products (name, price) VALUES ('Laptop', 999.99);<br>
         INSERT INTO products (name, price) VALUES ('Smartphone', 499.99);
-        </code>
+        </pre></code>
     </p>
     <p>
         <strong>3. Querying the Table:</strong><br>
-        <code>SELECT * FROM products;</code>
+        <pre><code>SELECT * FROM products;</pre></code>
     </p>
     <p>
         <strong>4. Updating a Record:</strong><br>
-        <code>UPDATE products SET price = 899.99 WHERE name = 'Laptop';</code>
+        <pre><code>UPDATE products SET price = 899.99 WHERE name = 'Laptop';</pre></code>
     </p>
     <p>
         <strong>5. Deleting a Record:</strong><br>
-        <code>DELETE FROM products WHERE name = 'Smartphone';</code>
+        <pre><code>DELETE FROM products WHERE name = 'Smartphone';</pre></code>
     </p>
 
     <div class="container">

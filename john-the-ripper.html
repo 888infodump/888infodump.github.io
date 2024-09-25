@@ -57,92 +57,92 @@
     <h2>Installation</h2>
     <p>
         <strong>Kali Linux:</strong> Pre-installed; verify by running:<br>
-        <code>john --version</code>
+        <pre><code>john --version</pre></code>
     </p>
     <p>
         <strong>Other Distributions:</strong><br>
         For Ubuntu/Debian, install with:<br>
-        <code>sudo apt install john</code>
+        <pre><code>sudo apt install john</pre></code>
     </p>
     <p>
         <strong>From Source:</strong><br>
         Download from the official repository.<br>
         Extract and compile:<br>
-        <code>tar -xzf john-*.tar.gz</code><br>
-        <code>cd john-*</code><br>
-        <code>./configure</code><br>
-        <code>make</code>
+        <pre><code>tar -xzf john-*.tar.gz</pre></code><br>
+        <pre><code>cd john-*</pre></code><br>
+        <pre><code>./configure</pre></code><br>
+        <pre><code>make</pre></code>
     </p>
 
     <h2>Basic Usage</h2>
     <p>
         <strong>Check Installation:</strong><br>
-        <code>john --version</code>
+        <pre><code>john --version</pre></code>
     </p>
 
     <h2>Cracking Password Hashes</h2>
     <p>
-        <strong>Prepare Hashes:</strong> Create a text file (e.g., <code>hashes.txt</code>) with password hashes.<br>
+        <strong>Prepare Hashes:</strong> Create a text file (e.g., <pre><code>hashes.txt</pre></code>) with password hashes.<br>
         <strong>Run John with a Wordlist:</strong><br>
-        <code>john --wordlist=<path-to-wordlist> hashes.txt</code>
+        <pre><code>john --wordlist=<path-to-wordlist> hashes.txt</pre></code>
     </p>
 
     <h2>Supported Hash Formats</h2>
     <p>
         <strong>List available formats:</strong><br>
-        <code>john --list=formats</code><br>
+        <pre><code>john --list=formats</pre></code><br>
         <strong>Specify format if necessary:</strong><br>
-        <code>john --format=<format> hashes.txt</code>
+        <pre><code>john --format=<format> hashes.txt</pre></code>
     </p>
 
     <h2>Show Cracked Passwords</h2>
     <p>
         <strong>Display cracked passwords:</strong><br>
-        <code>john --show hashes.txt</code>
+        <pre><code>john --show hashes.txt</pre></code>
     </p>
 
     <h2>Incremental Mode</h2>
     <p>
         <strong>For brute-force cracking:</strong><br>
-        <code>john --incremental hashes.txt</code>
+        <pre><code>john --incremental hashes.txt</pre></code>
     </p>
 
     <h2>Using a Custom Wordlist</h2>
     <p>
         <strong>Create a custom wordlist:</strong><br>
-        <code>echo -e "password123\n123456\nqwerty" > custom.txt</code><br>
+        <pre><code>echo -e "password123\n123456\nqwerty" > custom.txt</pre></code><br>
         <strong>Use it for cracking:</strong><br>
-        <code>john --wordlist=custom.txt hashes.txt</code>
+        <pre><code>john --wordlist=custom.txt hashes.txt</pre></code>
     </p>
 
     <h2>Using Rules for Password Generation</h2>
     <p>
         <strong>Utilize rules to modify wordlists:</strong><br>
-        <code>john --wordlist=<wordlist> --rules hashes.txt</code>
+        <pre><code>john --wordlist=<wordlist> --rules hashes.txt</pre></code>
     </p>
 
     <h2>Incremental Cracking with Custom Charset</h2>
     <p>
         <strong>Define a custom character set:</strong><br>
-        <code>john --incremental=CustomCharset --chars='abcde1234' hashes.txt</code>
+        <pre><code>john --incremental=CustomCharset --chars='abcde1234' hashes.txt</pre></code>
     </p>
 
     <h2>Session Management</h2>
     <p>
         <strong>Save progress:</strong><br>
-        <code>john --session=my_session hashes.txt</code><br>
+        <pre><code>john --session=my_session hashes.txt</pre></code><br>
         <strong>Resume session:</strong><br>
-        <code>john --restore=my_session</code>
+        <pre><code>john --restore=my_session</pre></code>
     </p>
 
     <h2>Cracking Specific Hash Types</h2>
     <p>
         <strong>MD5:</strong><br>
-        <code>john --format=md5 hashes.txt</code><br>
+        <pre><code>john --format=md5 hashes.txt</pre></code><br>
         <strong>SHA-256:</strong><br>
-        <code>john --format=sha256 hashes.txt</code><br>
+        <pre><code>john --format=sha256 hashes.txt</pre></code><br>
         <strong>bcrypt:</strong><br>
-        <code>john --format=bcrypt hashes.txt</code>
+        <pre><code>john --format=bcrypt hashes.txt</pre></code>
     </p>
 
     <h2>Using John the Ripper with Other Tools</h2>
@@ -154,19 +154,19 @@
     <h2>Common Commands Overview</h2>
     <p>
         <strong>List formats:</strong><br>
-        <code>john --list=formats</code><br>
+        <pre><code>john --list=formats</pre></code><br>
         <strong>Crack specific hash:</strong><br>
-        <code>john --format=<format> --wordlist=<wordlist> hashes.txt</code><br>
+        <pre><code>john --format=<format> --wordlist=<wordlist> hashes.txt</pre></code><br>
         <strong>Show cracked passwords:</strong><br>
-        <code>john --show hashes.txt</code>
+        <pre><code>john --show hashes.txt</pre></code>
     </p>
 
     <h2>Advanced Options</h2>
     <p>
         <strong>Enable verbose output:</strong><br>
-        <code>john --verbose hashes.txt</code><br>
+        <pre><code>john --verbose hashes.txt</pre></code><br>
         <strong>Adjust the number of threads for performance:</strong><br>
-        <code>john --fork=4 hashes.txt</code>
+        <pre><code>john --fork=4 hashes.txt</pre></code>
     </p>
     <div class="container">
         <div class="button"><a href="index.html">GO BACK TO HOME</a></div>

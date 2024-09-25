@@ -65,7 +65,7 @@
         To see the basic usage and options, run:
     </p>
     <p>
-        <code>hashcat -h</code>
+        <pre><code>hashcat -h</code></pre>
     </p>
 
     <h2>Supported Hash Types</h2>
@@ -73,7 +73,7 @@
         Identify the hash type you are working with. Use the following command to list supported hashes:
     </p>
     <p>
-        <code>hashcat --help | grep hash</code>
+        <pre><code>hashcat --help | grep hash</code></pre>
     </p>
 
     <h2>Preparing Your Hash File</h2>
@@ -81,10 +81,10 @@
         Create a text file containing the hashes you want to crack, one per line. For example:
     </p>
     <p>
-        <code>
+        <pre><code>
             5f4dcc3b5aa765d61d8327deb882cf99<br>
             6dcd4ce23d88e2ee9568ba546c007c63
-        </code>
+        </code></pre>
     </p>
 
     <h2>Selecting an Attack Mode</h2>
@@ -98,7 +98,7 @@
         Set the mode with the -a option:
     </p>
     <p>
-        <code>hashcat -a 0 -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt;</code>
+        <pre><code>hashcat -a 0 -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt;</code></pre>
     </p>
 
     <h2>Using a Wordlist</h2>
@@ -106,13 +106,13 @@
         To crack hashes using a wordlist:
     </p>
     <p>
-        <code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;path-to-wordlist&gt;</code>
+        <pre><code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;path-to-wordlist&gt;</code></pre>
     </p>
     <p>
         Example with a common wordlist:
     </p>
     <p>
-        <code>hashcat -m 0 myhashes.txt /usr/share/wordlists/rockyou.txt</code>
+        <pre><code>hashcat -m 0 myhashes.txt /usr/share/wordlists/rockyou.txt</code></pre>
     </p>
 
     <h2>Using Rules for Enhanced Cracking</h2>
@@ -120,13 +120,13 @@
         Apply rules to modify the wordlist entries:
     </p>
     <p>
-        <code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt; -r &lt;rules-file&gt;</code>
+        <pre><code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt; -r &lt;rules-file&gt;</code></pre>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>hashcat -m 0 myhashes.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule</code>
+        <pre><code>hashcat -m 0 myhashes.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule</code></pre>
     </p>
 
     <h2>Brute-Force Attack</h2>
@@ -134,7 +134,7 @@
         For brute-force cracking, specify a mask:
     </p>
     <p>
-        <code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; -a 3 ?l?l?l?l</code>
+        <pre><code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; -a 3 ?l?l?l?l</code></pre>
     </p>
     <p>
         This example tries all combinations of four lowercase letters.
@@ -146,7 +146,7 @@
         Check available devices:
     </p>
     <p>
-        <code>hashcat -D</code>
+        <pre><code>hashcat -D</code></pre>
     </p>
 
     <h2>Monitoring Progress</h2>
@@ -156,10 +156,10 @@
 
     <h2>Pausing and Resuming</h2>
     <p>
-        You can pause the cracking process with <code>s</code> and resume it later using:
+        You can pause the cracking process with <pre><code>s</code></pre> and resume it later using:
     </p>
     <p>
-        <code>hashcat --restore</code>
+        <pre><code>hashcat --restore</code></pre>
     </p>
 
     <h2>Outputting Results</h2>
@@ -167,7 +167,7 @@
         Cracked passwords will be saved to a .pot file. You can specify a different output file with:
     </p>
     <p>
-        <code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt; --outfile=&lt;output-file&gt;</code>
+        <pre><code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt; --outfile=&lt;output-file&gt;</code></pre>
     </p>
 
     <h2>Using Hashcat with the API</h2>

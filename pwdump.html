@@ -65,7 +65,7 @@
         To run Pwdump, use the command:
     </p>
     <p>
-        <code>pwdump &lt;options&gt;</code>
+        <pre><code>pwdump &lt;options&gt;</pre></code>
     </p>
 
     <h2>Extracting Password Hashes</h2>
@@ -73,13 +73,13 @@
         The basic command to extract hashes:
     </p>
     <p>
-        <code>pwdump &lt;system-file&gt;</code>
+        <pre><code>pwdump &lt;system-file&gt;</pre></code>
     </p>
     <p>
         Example using the SAM file from a mounted drive:
     </p>
     <p>
-        <code>pwdump C:\Windows\System32\config\SAM</code>
+        <pre><code>pwdump C:\Windows\System32\config\SAM</pre></code>
     </p>
 
     <h2>Using with SAM and SYSTEM Files</h2>
@@ -87,13 +87,13 @@
         If you have access to both SAM and SYSTEM files, you can extract hashes as follows:
     </p>
     <p>
-        <code>pwdump -s &lt;SYSTEM-file&gt; &lt;SAM-file&gt;</code>
+        <pre><code>pwdump -s &lt;SYSTEM-file&gt; &lt;SAM-file&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>pwdump -s SYSTEM -sam SAM</code>
+        <pre><code>pwdump -s SYSTEM -sam SAM</pre></code>
     </p>
 
     <h2>Output Formats</h2>
@@ -112,7 +112,7 @@
         Example command for Hashcat:
     </p>
     <p>
-        <code>hashcat -m 1000 &lt;hash-file&gt; &lt;wordlist&gt;</code>
+        <pre><code>hashcat -m 1000 &lt;hash-file&gt; &lt;wordlist&gt;</pre></code>
     </p>
 
     <h2>Using Pwdump on Remote Systems</h2>
@@ -121,7 +121,7 @@
         Use:
     </p>
     <p>
-        <code>pwdump -r &lt;remote-ip&gt;</code>
+        <pre><code>pwdump -r &lt;remote-ip&gt;</pre></code>
     </p>
 
     <h2>Troubleshooting Common Issues</h2>
@@ -139,7 +139,7 @@
         For additional options and usage details, refer to the official documentation or use:
     </p>
     <p>
-        <code>pwdump -h</code>
+        <pre><code>pwdump -h</pre></code>
     </p>
 
     <div class="container">

@@ -57,145 +57,145 @@
     <h2>1. Installation</h2>
     <p>
         <strong>Ubuntu/Debian:</strong><br>
-        <code>sudo apt update</code><br>
-        <code>sudo apt install nmap</code>
+        <pre><code>sudo apt update</pre></code><br>
+        <pre><code>sudo apt install nmap</pre></code>
     </p>
     <p>
         <strong>CentOS/RHEL:</strong><br>
-        <code>sudo yum install nmap</code>
+        <pre><code>sudo yum install nmap</pre></code>
     </p>
 
     <h2>2. Basic Usage</h2>
     <p>
         <strong>Scan a Single Target:</strong><br>
-        <code>nmap <target-ip></code>
+        <pre><code>nmap <target-ip></pre></code>
     </p>
     <p>
         <strong>Scan Multiple Targets:</strong><br>
-        <code>nmap <target-ip1> <target-ip2></code>
+        <pre><code>nmap <target-ip1> <target-ip2></pre></code>
     </p>
     <p>
         <strong>Scan a Range of IPs:</strong><br>
-        <code>nmap <target-ip-range></code>
+        <pre><code>nmap <target-ip-range></pre></code>
     </p>
 
     <h2>3. Scan Options</h2>
     <p>
         <strong>Scan Specific Ports:</strong><br>
-        <code>nmap -p <port1>,<port2> <target-ip></code>
+        <pre><code>nmap -p <port1>,<port2> <target-ip></pre></code>
     </p>
     <p>
         <strong>Scan All Ports:</strong><br>
-        <code>nmap -p- <target-ip></code>
+        <pre><code>nmap -p- <target-ip></pre></code>
     </p>
     <p>
         <strong>Scan for Open Ports Only:</strong><br>
-        <code>nmap --open <target-ip></code>
+        <pre><code>nmap --open <target-ip></pre></code>
     </p>
 
     <h2>4. Scan Techniques</h2>
     <p>
         <strong>SYN Scan (Stealth Scan):</strong><br>
-        <code>nmap -sS <target-ip></code>
+        <pre><code>nmap -sS <target-ip></pre></code>
     </p>
     <p>
         <strong>TCP Connect Scan:</strong><br>
-        <code>nmap -sT <target-ip></code>
+        <pre><code>nmap -sT <target-ip></pre></code>
     </p>
     <p>
         <strong>UDP Scan:</strong><br>
-        <code>nmap -sU <target-ip></code>
+        <pre><code>nmap -sU <target-ip></pre></code>
     </p>
     <p>
         <strong>Ping Scan:</strong><br>
-        <code>nmap -sn <target-ip></code>
+        <pre><code>nmap -sn <target-ip></pre></code>
     </p>
 
     <h2>5. Service and Version Detection</h2>
     <p>
         <strong>Detect Services:</strong><br>
-        <code>nmap -sV <target-ip></code>
+        <pre><code>nmap -sV <target-ip></pre></code>
     </p>
     <p>
         <strong>Detect OS:</strong><br>
-        <code>nmap -O <target-ip></code>
+        <pre><code>nmap -O <target-ip></pre></code>
     </p>
 
     <h2>6. Script Scanning</h2>
     <p>
         <strong>Run Default Scripts:</strong><br>
-        <code>nmap -sC <target-ip></code>
+        <pre><code>nmap -sC <target-ip></pre></code>
     </p>
     <p>
         <strong>Run Specific Scripts:</strong><br>
-        <code>nmap --script <script-name> <target-ip></code>
+        <pre><code>nmap --script <script-name> <target-ip></pre></code>
     </p>
 
     <h2>7. Output Options</h2>
     <p>
         <strong>Save Output to a File:</strong><br>
-        <code>nmap -oN <output-file> <target-ip></code>
+        <pre><code>nmap -oN <output-file> <target-ip></pre></code>
     </p>
     <p>
         <strong>Save Output in XML Format:</strong><br>
-        <code>nmap -oX <output-file> <target-ip></code>
+        <pre><code>nmap -oX <output-file> <target-ip></pre></code>
     </p>
 
     <h2>8. Timing and Performance</h2>
     <p>
         <strong>Set Timing Template:</strong><br>
-        <code>nmap -T<0-5> <target-ip></code>
+        <pre><code>nmap -T<0-5> <target-ip></pre></code>
     </p>
     <p>
         <strong>Adjust Max Retries:</strong><br>
-        <code>nmap --max-retries <number> <target-ip></code>
+        <pre><code>nmap --max-retries <number> <target-ip></pre></code>
     </p>
     <h2>9. Firewall/IDS Evasion</h2> 
     <p> 
         <strong>Fragment Packets:</strong><br> 
-        <code>nmap -f <target-ip></code> 
+        <pre><code>nmap -f <target-ip></pre></code> 
     </p> 
     <p> <strong>Decoy Scan:</strong><br> 
-        <code>nmap -D <decoy1>,<decoy2>,ME <target-ip></code> 
+        <pre><code>nmap -D <decoy1>,<decoy2>,ME <target-ip></pre></code> 
     </p> 
     <p> 
         <strong>Idle Scan:</strong><br> 
-        <code>nmap -sI <zombie-ip> <target-ip></code> 
+        <pre><code>nmap -sI <zombie-ip> <target-ip></pre></code> 
     </p> 
     <h2>10. Advanced Scanning Techniques</h2> 
     <p> 
         <strong>IPv6 Scan:</strong><br>
-        <code>nmap -6 <target-ipv6></code> 
+        <pre><code>nmap -6 <target-ipv6></pre></code> 
     </p> 
     <p> 
         <strong>Scan Behind Firewall (using proxies):</strong><br>
-        <code>nmap --proxies <proxy> <target-ip></code> 
+        <pre><code>nmap --proxies <proxy> <target-ip></pre></code> 
     </p> 
     <p> 
         <strong>Scan with Custom Data Length:</strong><br> 
-        <code>nmap --data-length <number> <target-ip></code> 
+        <pre><code>nmap --data-length <number> <target-ip></pre></code> 
     </p> 
     <h2>11. NSE (Nmap Scripting Engine)</h2> 
     <p> 
         <strong>List Available Scripts:</strong><br> 
-        <code>ls /usr/share/nmap/scripts/</code> 
+        <pre><code>ls /usr/share/nmap/scripts/</pre></code> 
     </p> 
     <p> 
         <strong>Run Vulnerability Scripts:</strong><br> 
-        <code>nmap --script vuln <target-ip></code> 
+        <pre><code>nmap --script vuln <target-ip></pre></code> 
         </p> 
     <p> 
         <strong>Run Safe Scripts:</strong><br> 
-        <code>nmap --script safe <target-ip></code> 
+        <pre><code>nmap --script safe <target-ip></pre></code> 
     </p> 
     <h2>12. Comparing Scan Results</h2> 
     <p> 
         <strong>Compare Two Nmap Output Files:</strong><br> 
-        <code>ndiff <file1.xml> <file2.xml></code>
+        <pre><code>ndiff <file1.xml> <file2.xml></pre></code>
     </p> 
     <p> 
         <strong>Compare Multiple Nmap Output Files:</strong><br> 
-        <code>ndiff <file1.xml> <file2.xml> <file3.xml></code> 
+        <pre><code>ndiff <file1.xml> <file2.xml> <file3.xml></pre></code> 
     </p> 
     <h2>13. Nmap with Zenmap</h2> 
     <p>
@@ -203,24 +203,24 @@
     </p>
      <p> 
         <strong>Install Zenmap:</strong><br> 
-        <code>sudo apt install zenmap</code> 
+        <pre><code>sudo apt install zenmap</pre></code> 
     </p> 
     <p>
         <strong>Launch Zenmap:</strong><br> 
-        <code>zenmap</code> 
+        <pre><code>zenmap</pre></code> 
     </p> 
     <h2>14. Troubleshooting</h2> 
     <p> 
         <strong>Check Nmap Version:</strong><br> 
-        <code>nmap --version</code> 
+        <pre><code>nmap --version</pre></code> 
     </p> 
     <p> 
         <strong>Debugging Output:</strong><br> 
-        <code>nmap -d <target-ip></code> 
+        <pre><code>nmap -d <target-ip></pre></code> 
     </p> 
     <p> 
         <strong>Verbose Output:</strong><br> 
-        <code>nmap -v <target-ip></code> 
+        <pre><code>nmap -v <target-ip></pre></code> 
         </p> 
     <h2>15. Community and Resources</h2> 
     <p> 

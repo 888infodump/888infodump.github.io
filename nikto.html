@@ -61,7 +61,7 @@
         Start Nikto using the command:
     </p>
     <p>
-        <code>perl nikto.pl</code>
+        <pre><code>perl nikto.pl</pre></code>
     </p>
 
     <h2>Basic Usage</h2>
@@ -69,13 +69,13 @@
         Scan a target website:
     </p>
     <p>
-        <code>perl nikto.pl -h &lt;target-url&gt;</code>
+        <pre><code>perl nikto.pl -h &lt;target-url&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>perl nikto.pl -h http://example.com</code>
+        <pre><code>perl nikto.pl -h http://example.com</pre></code>
     </p>
 
     <h2>Scanning Specific Ports</h2>
@@ -83,13 +83,13 @@
         To specify a port (default is 80):
     </p>
     <p>
-        <code>perl nikto.pl -h &lt;target-url&gt; -p &lt;port&gt;</code>
+        <pre><code>perl nikto.pl -h &lt;target-url&gt; -p &lt;port&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>perl nikto.pl -h http://example.com -p 8080</code>
+        <pre><code>perl nikto.pl -h http://example.com -p 8080</pre></code>
     </p>
 
     <h2>Using Different Plugins</h2>
@@ -97,13 +97,13 @@
         Enable or disable specific tests:
     </p>
     <p>
-        <code>perl nikto.pl -h &lt;target-url&gt; -T &lt;test-id&gt;</code>
+        <pre><code>perl nikto.pl -h &lt;target-url&gt; -T &lt;test-id&gt;</pre></code>
     </p>
     <p>
         List available tests with:
     </p>
     <p>
-        <code>perl nikto.pl -list-plugins</code>
+        <pre><code>perl nikto.pl -list-plugins</pre></code>
     </p>
 
     <h2>Output Options</h2>
@@ -111,13 +111,13 @@
         Save results to a file:
     </p>
     <p>
-        <code>perl nikto.pl -h &lt;target-url&gt; -o &lt;output-file&gt; -F &lt;format&gt;</code>
+        <pre><code>perl nikto.pl -h &lt;target-url&gt; -o &lt;output-file&gt; -F &lt;format&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>perl nikto.pl -h http://example.com -o results.txt -F txt</code>
+        <pre><code>perl nikto.pl -h http://example.com -o results.txt -F txt</pre></code>
     </p>
 
     <h2>Scanning with SSL</h2>
@@ -125,13 +125,13 @@
         To scan HTTPS sites:
     </p>
     <p>
-        <code>perl nikto.pl -h https://&lt;target-url&gt;</code>
+        <pre><code>perl nikto.pl -h https://&lt;target-url&gt;</pre></code>
     </p>
     <p>
         Example:
     </p>
     <p>
-        <code>perl nikto.pl -h https://example.com</code>
+        <pre><code>perl nikto.pl -h https://example.com</pre></code>
     </p>
 
     <h2>Setting User-Agent</h2>
@@ -139,7 +139,7 @@
         Change the User-Agent string:
     </p>
     <p>
-        <code>perl nikto.pl -h &lt;target-url&gt; -useragent "&lt;custom-user-agent&gt;"</code>
+        <pre><code>perl nikto.pl -h &lt;target-url&gt; -useragent "&lt;custom-user-agent&gt;"</pre></code>
     </p>
 
     <h2>Running in the Background</h2>
@@ -147,7 +147,7 @@
         Use nohup to run Nikto in the background:
     </p>
     <p>
-        <code>nohup perl nikto.pl -h &lt;target-url&gt; &</code>
+        <pre><code>nohup perl nikto.pl -h &lt;target-url&gt; &</pre></code>
     </p>
 
     <h2>Excluding Specific Tests</h2>
@@ -155,7 +155,7 @@
         Exclude certain tests using:
     </p>
     <p>
-        <code>perl nikto.pl -h &lt;target-url&gt; -e &lt;test-id&gt;</code>
+        <pre><code>perl nikto.pl -h &lt;target-url&gt; -e &lt;test-id&gt;</pre></code>
     </p>
 
     <h2>Getting Help</h2>
@@ -163,7 +163,7 @@
         To see all options and usage:
     </p>
     <p>
-        <code>perl nikto.pl -h</code>
+        <pre><code>perl nikto.pl -h</pre></code>
     </p>
 
     <div class="container">

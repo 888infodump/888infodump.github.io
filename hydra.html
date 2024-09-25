@@ -57,29 +57,29 @@
     <h2>1. Basic Usage</h2>
     <p>
         <strong>General Syntax:</strong><br>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; &lt;protocol&gt;</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; &lt;protocol&gt;</pre></code>
     </p>
 
     <h2>2. Common Protocols</h2>
     <p>
         <strong>SSH:</strong><br>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ssh</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ssh</pre></code>
     </p>
     <p>
         <strong>HTTP (GET):</strong><br>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; http-get</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; http-get</pre></code>
     </p>
     <p>
         <strong>HTTP (POST):</strong><br>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; http-post-form "/login.php:username=^USER^&password=^PASS^:F=incorrect"</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; http-post-form "/login.php:username=^USER^&password=^PASS^:F=incorrect"</pre></code>
     </p>
     <p>
         <strong>FTP:</strong><br>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ftp</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ftp</pre></code>
     </p>
     <p>
         <strong>MySQL:</strong><br>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; mysql</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; mysql</pre></code>
     </p>
 
     <h2>3. Using Multiple Usernames</h2>
@@ -87,7 +87,7 @@
         To use multiple usernames, create a file with usernames (one per line) and use the -L option:
     </p>
     <p>
-        <code>hydra -L &lt;username-file&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ssh</code>
+        <pre><code>hydra -L &lt;username-file&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ssh</pre></code>
     </p>
 
     <h2>4. Specifying Ports</h2>
@@ -95,7 +95,7 @@
         To specify a custom port, use the -s option:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -s &lt;port&gt; &lt;target-ip&gt; ssh</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -s &lt;port&gt; &lt;target-ip&gt; ssh</pre></code>
     </p>
 
     <h2>5. Increase Speed with Parallel Connections</h2>
@@ -103,7 +103,7 @@
         To increase the number of parallel tasks, use the -t option:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -t 16 &lt;target-ip&gt; ssh</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -t 16 &lt;target-ip&gt; ssh</pre></code>
     </p>
 
     <h2>6. Verbose Output</h2>
@@ -111,7 +111,7 @@
         Use the -v option to get more detailed output:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -v &lt;target-ip&gt; ssh</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -v &lt;target-ip&gt; ssh</pre></code>
     </p>
 
     <h2>7. Session Management</h2>
@@ -119,13 +119,13 @@
         Save progress and restore later:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ssh -o output.txt</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ssh -o output.txt</pre></code>
     </p>
     <p>
         To resume from a session file, use:
     </p>
     <p>
-        <code>hydra -R -o output.txt</code>
+        <pre><code>hydra -R -o output.txt</pre></code>
     </p>
 
     <h2>8. Using Specific Passwords</h2>
@@ -133,7 +133,7 @@
         If you have a specific password to try, use the -p option:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -p &lt;specific-password&gt; &lt;target-ip&gt; ssh</code>
+        <pre><code>hydra -l &lt;username&gt; -p &lt;specific-password&gt; &lt;target-ip&gt; ssh</pre></code>
     </p>
 
     <h2>9. HTTP Form Authentication</h2>
@@ -141,7 +141,7 @@
         For forms that require more complex interaction:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; http-post-form "/login.php:username=^USER^&password=^PASS^:F=incorrect"</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; http-post-form "/login.php:username=^USER^&password=^PASS^:F=incorrect"</pre></code>
     </p>
     <p>
         Replace incorrect with the actual failure message from the login page.
@@ -152,7 +152,7 @@
         To route through a proxy:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -p &lt;proxy&gt; &lt;target-ip&gt; ssh</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -p &lt;proxy&gt; &lt;target-ip&gt; ssh</pre></code>
     </p>
 
     <h2>11. Targeting Multiple IPs</h2>
@@ -160,7 +160,7 @@
         To attack multiple targets, list the targets in a file and use the -M option:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -M &lt;targets-file&gt; ssh</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; -M &lt;targets-file&gt; ssh</pre></code>
     </p>
 
     <h2>12. Saving and Analyzing Results</h2>
@@ -168,7 +168,7 @@
         Save output to a file for later analysis:
     </p>
     <p>
-        <code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ssh -o results.txt</code>
+        <pre><code>hydra -l &lt;username&gt; -P &lt;password-list&gt; &lt;target-ip&gt; ssh -o results.txt</pre></code>
     </p>
 
     <h2>13. Documentation and Help</h2>
@@ -176,7 +176,7 @@
         To see all available options, run:
     </p>
     <p>
-        <code>hydra -h</code>
+        <pre><code>hydra -h</pre></code>
     </p>
     <p>
         Refer to the official Hydra documentation for more details.
@@ -185,7 +185,7 @@
     <h2>Example Scenarios</h2>
     <p>
         <strong>1. Brute Force SSH Login:</strong><br>
-        <code>hydra -l admin -P /path/to/passwords.txt 192.168.1.100 ssh</code>
+        <pre><code>hydra -l admin -P /path/to/passwords.txt 192.168.1.100 ssh</pre></code>
     </p>
 
     <div class="container">
