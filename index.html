@@ -3,33 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site map</title>
+    <title>Site Map</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             margin: 20px;
-            background-color: #2e2e2e;
+            background-color: #000;
+            color: #00FF00;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAQCAYAAAAf8/9hAAAAFklEQVR42mP8z8AIAI1AX8U77EyAAAAABJRU5ErkJggg==');
         }
         h1 {
             text-align: center;
+            text-shadow: 0 0 10px #00FF00;
+            font-size: 2.5em;
         }
         ul {
             list-style-type: none;
             padding: 0;
         }
         li {
-            background: #222222;
+            background: rgba(0, 128, 0, 0.5);
             margin: 8px 0;
             padding: 10px;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            transition: background 0.3s;
+        }
+        li:hover {
+            background: rgba(0, 255, 0, 0.7);
         }
         a {
             text-decoration: none;
-            color: #333;
+            color: #00FF00;
+            font-weight: bold;
         }
         a:hover {
-            color: #159929;
+            color: #000;
+            background-color: #00FF00;
+            padding: 2px;
+            border-radius: 3px;
         }
     </style>
 </head>
