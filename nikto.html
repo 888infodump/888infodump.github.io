@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikto Detailed Guide</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a:focus {
+            transform: scale(1.1); /* Slightly enlarge the focused link */
+        }
+        a:hover {
+            color: #000;
+            background-color: #00ff00;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+    <h1>Nikto Detailed Guide</h1>
+
+    <h2>Launching Nikto</h2>
+    <p>
+        Open your terminal.
+        Navigate to the Nikto installation directory.
+        Start Nikto using the command:
+    </p>
+    <p>
+        <code>perl nikto.pl</code>
+    </p>
+
+    <h2>Basic Usage</h2>
+    <p>
+        Scan a target website:
+    </p>
+    <p>
+        <code>perl nikto.pl -h &lt;target-url&gt;</code>
+    </p>
+    <p>
+        Example:
+    </p>
+    <p>
+        <code>perl nikto.pl -h http://example.com</code>
+    </p>
+
+    <h2>Scanning Specific Ports</h2>
+    <p>
+        To specify a port (default is 80):
+    </p>
+    <p>
+        <code>perl nikto.pl -h &lt;target-url&gt; -p &lt;port&gt;</code>
+    </p>
+    <p>
+        Example:
+    </p>
+    <p>
+        <code>perl nikto.pl -h http://example.com -p 8080</code>
+    </p>
+
+    <h2>Using Different Plugins</h2>
+    <p>
+        Enable or disable specific tests:
+    </p>
+    <p>
+        <code>perl nikto.pl -h &lt;target-url&gt; -T &lt;test-id&gt;</code>
+    </p>
+    <p>
+        List available tests with:
+    </p>
+    <p>
+        <code>perl nikto.pl -list-plugins</code>
+    </p>
+
+    <h2>Output Options</h2>
+    <p>
+        Save results to a file:
+    </p>
+    <p>
+        <code>perl nikto.pl -h &lt;target-url&gt; -o &lt;output-file&gt; -F &lt;format&gt;</code>
+    </p>
+    <p>
+        Example:
+    </p>
+    <p>
+        <code>perl nikto.pl -h http://example.com -o results.txt -F txt</code>
+    </p>
+
+    <h2>Scanning with SSL</h2>
+    <p>
+        To scan HTTPS sites:
+    </p>
+    <p>
+        <code>perl nikto.pl -h https://&lt;target-url&gt;</code>
+    </p>
+    <p>
+        Example:
+    </p>
+    <p>
+        <code>perl nikto.pl -h https://example.com</code>
+    </p>
+
+    <h2>Setting User-Agent</h2>
+    <p>
+        Change the User-Agent string:
+    </p>
+    <p>
+        <code>perl nikto.pl -h &lt;target-url&gt; -useragent "&lt;custom-user-agent&gt;"</code>
+    </p>
+
+    <h2>Running in the Background</h2>
+    <p>
+        Use nohup to run Nikto in the background:
+    </p>
+    <p>
+        <code>nohup perl nikto.pl -h &lt;target-url&gt; &</code>
+    </p>
+
+    <h2>Excluding Specific Tests</h2>
+    <p>
+        Exclude certain tests using:
+    </p>
+    <p>
+        <code>perl nikto.pl -h &lt;target-url&gt; -e &lt;test-id&gt;</code>
+    </p>
+
+    <h2>Getting Help</h2>
+    <p>
+        To see all options and usage:
+    </p>
+    <p>
+        <code>perl nikto.pl -h</code>
+    </p>
+
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+</body>
+</html>

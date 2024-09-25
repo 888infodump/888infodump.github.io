@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL: Comprehensive Guide</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a:focus {
+            transform: scale(1.1); /* Slightly enlarge the focused link */
+        }
+        a:hover {
+            color: #000;
+            background-color: #00ff00;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+    <h1>MySQL: Comprehensive Guide</h1>
+
+    <h2>1. Installation</h2>
+    <p>
+        <strong>Ubuntu/Debian:</strong><br>
+        <code>sudo apt update</code><br>
+        <code>sudo apt install mysql-server</code>
+    </p>
+    <p>
+        <strong>CentOS/RHEL:</strong><br>
+        <code>sudo yum install mysql-server</code>
+    </p>
+    <p>
+        <strong>Start MySQL Service:</strong><br>
+        <code>sudo systemctl start mysql</code><br>
+        <code>sudo systemctl enable mysql</code>
+    </p>
+
+    <h2>2. Securing MySQL Installation</h2>
+    <p>
+        <code>sudo mysql_secure_installation</code>
+    </p>
+    <p>
+        Follow the prompts to set a root password and secure your installation.
+    </p>
+
+    <h2>3. Connecting to MySQL</h2>
+    <p>
+        <code>mysql -u root -p</code>
+    </p>
+    <p>
+        Log in to MySQL as the root user.
+    </p>
+
+    <h2>4. Basic MySQL Commands</h2>
+    <p>
+        <strong>Show Databases:</strong><br>
+        <code>SHOW DATABASES;</code>
+    </p>
+    <p>
+        <strong>Create a Database:</strong><br>
+        <code>CREATE DATABASE mydatabase;</code>
+    </p>
+    <p>
+        <strong>Use a Database:</strong><br>
+        <code>USE mydatabase;</code>
+    </p>
+    <p>
+        <strong>Show Tables:</strong><br>
+        <code>SHOW TABLES;</code>
+    </p>
+    <p>
+        <strong>Create a Table:</strong><br>
+        <code>
+        CREATE TABLE users (<br>
+            id INT AUTO_INCREMENT PRIMARY KEY,<br>
+            username VARCHAR(50),<br>
+            password VARCHAR(255)<br>
+        );
+        </code>
+    </p>
+    <p>
+        <strong>Insert Data:</strong><br>
+        <code>INSERT INTO users (username, password) VALUES ('admin', 'password123');</code>
+    </p>
+    <p>
+        <strong>Select Data:</strong><br>
+        <code>SELECT * FROM users;</code>
+    </p>
+    <p>
+        <strong>Update Data:</strong><br>
+        <code>UPDATE users SET password='newpassword' WHERE username='admin';</code>
+    </p>
+    <p>
+        <strong>Delete Data:</strong><br>
+        <code>DELETE FROM users WHERE username='admin';</code>
+    </p>
+
+    <h2>5. User Management</h2>
+    <p>
+        <strong>Create a New User:</strong><br>
+        <code>CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';</code>
+    </p>
+    <p>
+        <strong>Grant Privileges:</strong><br>
+        <code>GRANT ALL PRIVILEGES ON mydatabase.* TO 'newuser'@'localhost';</code>
+    </p>
+    <p>
+        <strong>Show Grants for a User:</strong><br>
+        <code>SHOW GRANTS FOR 'newuser'@'localhost';</code>
+    </p>
+    <p>
+        <strong>Revoke Privileges:</strong><br>
+        <code>REVOKE ALL PRIVILEGES ON mydatabase.* FROM 'newuser'@'localhost';</code>
+    </p>
+
+    <h2>6. Backup and Restore</h2>
+    <p>
+        <strong>Backup a Database:</strong><br>
+        <code>mysqldump -u root -p mydatabase > mydatabase_backup.sql</code>
+    </p>
+    <p>
+        <strong>Restore a Database:</strong><br>
+        <code>mysql -u root -p mydatabase < mydatabase_backup.sql</code>
+    </p>
+
+    <h2>7. Using SQL Queries</h2>
+    <p>
+        <strong>Where Clause:</strong><br>
+        <code>SELECT * FROM users WHERE username='admin';</code>
+    </p>
+    <p>
+        <strong>Order By:</strong><br>
+        <code>SELECT * FROM users ORDER BY id DESC;</code>
+    </p>
+    <p>
+        <strong>Join Tables:</strong><br>
+        <code>
+        SELECT users.username, orders.amount<br>
+        FROM users<br>
+        JOIN orders ON users.id = orders.user_id;
+        </code>
+    </p>
+
+    <h2>8. Handling Errors</h2>
+    <p>
+        <strong>Check Error Codes:</strong><br>
+        <code>SHOW ERRORS;</code>
+    </p>
+    <p>
+        <strong>Display Last Error:</strong><br>
+        <code>SELECT LAST_INSERT_ID();</code>
+    </p>
+
+    <h2>9. Optimizing Performance</h2>
+    <p>
+        <strong>Indexing:</strong><br>
+        <code>CREATE INDEX idx_username ON users (username);</code>
+    </p>
+    <p>
+        <strong>Analyze Table:</strong><br>
+        <code>ANALYZE TABLE users;</code>
+    </p>
+
+    <h2>10. Exiting MySQL</h2>
+    <p>
+        <code>EXIT;</code>
+    </p>
+
+    <h2>Example Scenarios</h2>
+    <p>
+        <strong>1. Creating a Database and Table:</strong><br>
+        <code>
+        CREATE DATABASE shop;<br>
+        USE shop;<br>
+        CREATE TABLE products (<br>
+            id INT AUTO_INCREMENT PRIMARY KEY,<br>
+            name VARCHAR(100),<br>
+            price DECIMAL(10, 2)<br>
+        );
+        </code>
+    </p>
+    <p>
+        <strong>2. Inserting Data into the Table:</strong><br>
+        <code>
+        INSERT INTO products (name, price) VALUES ('Laptop', 999.99);<br>
+        INSERT INTO products (name, price) VALUES ('Smartphone', 499.99);
+        </code>
+    </p>
+    <p>
+        <strong>3. Querying the Table:</strong><br>
+        <code>SELECT * FROM products;</code>
+    </p>
+    <p>
+        <strong>4. Updating a Record:</strong><br>
+        <code>UPDATE products SET price = 899.99 WHERE name = 'Laptop';</code>
+    </p>
+    <p>
+        <strong>5. Deleting a Record:</strong><br>
+        <code>DELETE FROM products WHERE name = 'Smartphone';</code>
+    </p>
+
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+</body>
+</html>

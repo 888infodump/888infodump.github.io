@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghidra Detailed Guide</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a:focus {
+            transform: scale(1.1); /* Slightly enlarge the focused link */
+        }
+        a:hover {
+            color: #000;
+            background-color: #00ff00;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+    <h1>Ghidra Detailed Guide</h1>
+
+    <h2>Launching Ghidra</h2>
+    <p>
+        Open Ghidra from your applications menu or terminal.
+        Use the command:
+    </p>
+    <p>
+        <code>./ghidraRun</code>
+    </p>
+    <p>
+        This will start the Ghidra interface.
+    </p>
+
+    <h2>Creating a New Project</h2>
+    <p>
+        Select File > New Project.
+        Choose between a Non-Shared Project (local) or a Shared Project (collaborative).
+        Name your project and specify a directory to store it.
+    </p>
+
+    <h2>Importing a Binary File</h2>
+    <p>
+        Right-click on the project window and select Import File.
+        Browse to the binary executable you want to analyze and click Open.
+        Ghidra will prompt you to configure the import settings; proceed with the defaults or adjust as necessary.
+    </p>
+
+    <h2>Analyzing the File</h2>
+    <p>
+        Once imported, double-click the file in your project.
+        Ghidra will open the CodeBrowser.
+        Click Analysis > Analyze Program to start the analysis process.
+        Choose analysis options and click OK.
+    </p>
+
+    <h2>Exploring the Code</h2>
+    <p>
+        Use the CodeBrowser to navigate through the disassembled code.
+        The left pane shows the listing, while the right pane displays detailed information about the selected instruction.
+        Use the Function Graph to visualize function calls and control flow.
+    </p>
+
+    <h2>Using the Decompiler</h2>
+    <p>
+        Select a function and click on the Decompile button (or press F decompile).
+        The decompiler will generate a high-level representation of the function, making it easier to understand.
+    </p>
+
+    <h2>Searching for Functions and Strings</h2>
+    <p>
+        Use the Search menu to find specific functions, strings, or patterns within the binary.
+        This can help identify key areas of interest or vulnerabilities.
+    </p>
+
+    <h2>Creating Annotations</h2>
+    <p>
+        Right-click on instructions or variables to add comments and labels.
+        This helps document your analysis for future reference.
+    </p>
+
+    <h2>Exporting Results</h2>
+    <p>
+        To save your findings, select File > Export.
+        Choose the format (e.g., text, CSV) and specify the destination.
+    </p>
+
+    <h2>Using Scripts and Plugins</h2>
+    <p>
+        Ghidra supports scripting in Java and Python.
+        Use the Script Manager to run or create custom scripts.
+    </p>
+
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+</body>
+</html>
