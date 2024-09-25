@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John the Ripper: Comprehensive Guide</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a:focus {
+            transform: scale(1.1); /* Slightly enlarge the focused link */
+        }
+        a:hover {
+            color: #000;
+            background-color: #00ff00;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+    <h1>John the Ripper: Comprehensive Guide</h1>
+
+    <h2>Installation</h2>
+    <p>
+        <strong>Kali Linux:</strong> Pre-installed; verify by running:<br>
+        <code>john --version</code>
+    </p>
+    <p>
+        <strong>Other Distributions:</strong><br>
+        For Ubuntu/Debian, install with:<br>
+        <code>sudo apt install john</code>
+    </p>
+    <p>
+        <strong>From Source:</strong><br>
+        Download from the official repository.<br>
+        Extract and compile:<br>
+        <code>tar -xzf john-*.tar.gz</code><br>
+        <code>cd john-*</code><br>
+        <code>./configure</code><br>
+        <code>make</code>
+    </p>
+
+    <h2>Basic Usage</h2>
+    <p>
+        <strong>Check Installation:</strong><br>
+        <code>john --version</code>
+    </p>
+
+    <h2>Cracking Password Hashes</h2>
+    <p>
+        <strong>Prepare Hashes:</strong> Create a text file (e.g., <code>hashes.txt</code>) with password hashes.<br>
+        <strong>Run John with a Wordlist:</strong><br>
+        <code>john --wordlist=<path-to-wordlist> hashes.txt</code>
+    </p>
+
+    <h2>Supported Hash Formats</h2>
+    <p>
+        <strong>List available formats:</strong><br>
+        <code>john --list=formats</code><br>
+        <strong>Specify format if necessary:</strong><br>
+        <code>john --format=<format> hashes.txt</code>
+    </p>
+
+    <h2>Show Cracked Passwords</h2>
+    <p>
+        <strong>Display cracked passwords:</strong><br>
+        <code>john --show hashes.txt</code>
+    </p>
+
+    <h2>Incremental Mode</h2>
+    <p>
+        <strong>For brute-force cracking:</strong><br>
+        <code>john --incremental hashes.txt</code>
+    </p>
+
+    <h2>Using a Custom Wordlist</h2>
+    <p>
+        <strong>Create a custom wordlist:</strong><br>
+        <code>echo -e "password123\n123456\nqwerty" > custom.txt</code><br>
+        <strong>Use it for cracking:</strong><br>
+        <code>john --wordlist=custom.txt hashes.txt</code>
+    </p>
+
+    <h2>Using Rules for Password Generation</h2>
+    <p>
+        <strong>Utilize rules to modify wordlists:</strong><br>
+        <code>john --wordlist=<wordlist> --rules hashes.txt</code>
+    </p>
+
+    <h2>Incremental Cracking with Custom Charset</h2>
+    <p>
+        <strong>Define a custom character set:</strong><br>
+        <code>john --incremental=CustomCharset --chars='abcde1234' hashes.txt</code>
+    </p>
+
+    <h2>Session Management</h2>
+    <p>
+        <strong>Save progress:</strong><br>
+        <code>john --session=my_session hashes.txt</code><br>
+        <strong>Resume session:</strong><br>
+        <code>john --restore=my_session</code>
+    </p>
+
+    <h2>Cracking Specific Hash Types</h2>
+    <p>
+        <strong>MD5:</strong><br>
+        <code>john --format=md5 hashes.txt</code><br>
+        <strong>SHA-256:</strong><br>
+        <code>john --format=sha256 hashes.txt</code><br>
+        <strong>bcrypt:</strong><br>
+        <code>john --format=bcrypt hashes.txt</code>
+    </p>
+
+    <h2>Using John the Ripper with Other Tools</h2>
+    <p>
+        <strong>hashcat:</strong> For more advanced attacks, consider using it alongside John the Ripper.<br>
+        <strong>pwdump:</strong> Use with pwdump to extract hashes from Windows systems.
+    </p>
+
+    <h2>Common Commands Overview</h2>
+    <p>
+        <strong>List formats:</strong><br>
+        <code>john --list=formats</code><br>
+        <strong>Crack specific hash:</strong><br>
+        <code>john --format=<format> --wordlist=<wordlist> hashes.txt</code><br>
+        <strong>Show cracked passwords:</strong><br>
+        <code>john --show hashes.txt</code>
+    </p>
+
+    <h2>Advanced Options</h2>
+    <p>
+        <strong>Enable verbose output:</strong><br>
+        <code>john --verbose hashes.txt</code><br>
+        <strong>Adjust the number of threads for performance:</strong><br>
+        <code>john --fork=4 hashes.txt</code>
+    </p>
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+</body>
+</html>
