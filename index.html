@@ -17,11 +17,13 @@
             color: #00ff00;
             text-shadow: 1px 1px 3px #000;
             font-size: 2.5em;
+            cursor: pointer;
         }
         .container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
+            display: none; /* Hide by default */
         }
         .button {
             background: rgba(40, 40, 40, 0.8);
@@ -49,10 +51,20 @@
             border-radius: 3px;
         }
     </style>
+    <script>
+        function toggleButtons() {
+            var container = document.querySelector('.container');
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'grid';
+            } else {
+                container.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body>
 
-    <h1>Security Tools</h1>
+    <h1 onclick="toggleButtons()">Security Tools</h1>
     <div class="container">
         <div class="button"><a href="aircrack-ng.html">Aircrack-ng</a></div>
         <div class="button"><a href="ferret.html">Ferret</a></div>
