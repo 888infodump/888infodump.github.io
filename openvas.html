@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenVAS Detailed Guide</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a:focus {
+            transform: scale(1.1); /* Slightly enlarge the focused link */
+        }
+        a:hover {
+            color: #000;
+            background-color: #00ff00;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+    <h1>OpenVAS Detailed Guide</h1>
+
+    <h2>1. Installation</h2>
+    <p>
+        <strong>Ubuntu/Debian:</strong><br>
+        <pre><code>sudo apt update</pre></code><br>
+        <pre><code>sudo apt install openvas</pre></code>
+    </p>
+    <p>
+        <strong>CentOS/RHEL:</strong><br>
+        <pre><code>sudo yum install openvas</pre></code>
+    </p>
+
+    <h2>2. Basic Usage</h2>
+    <p>
+        <strong>Start OpenVAS Services:</strong><br>
+        <pre><code>sudo openvas-start</pre></code>
+    </p>
+    <p>
+        <strong>Access OpenVAS Web Interface:</strong><br>
+        <pre><code>https://localhost:9392</pre></code>
+    </p>
+    <p>
+        <strong>Default Credentials:</strong><br>
+        <pre><code>Username: admin</pre></code><br>
+        <pre><code>Password: admin</pre></code>
+    </p>
+
+    <h2>3. Configuration</h2>
+    <p>
+        <strong>Update Feed:</strong><br>
+        <pre><code>sudo greenbone-nvt-sync</pre></code><br>
+        <pre><code>sudo greenbone-scapdata-sync</pre></code><br>
+        <pre><code>sudo greenbone-certdata-sync</pre></code>
+    </p>
+    <p>
+        <strong>Change Admin Password:</strong><br>
+        <pre><code>Go to Administration -> Users -> admin -> Change Password</pre></code>
+    </p>
+
+    <h2>4. Creating a Scan</h2>
+    <p>
+        <strong>Create a New Scan:</strong><br>
+        <pre><code>Go to Scans -> Tasks -> New Task</pre></code>
+    </p>
+    <p>
+        <strong>Configure Scan Settings:</strong><br>
+        <pre><code>Select Scan Targets, Scan Config, and Start Scan</pre></code>
+    </p>
+
+    <h2>5. Managing Scan Targets</h2>
+    <p>
+        <strong>Add a New Target:</strong><br>
+        <pre><code>Go to Configuration -> Targets -> New Target</pre></code>
+    </p>
+    <p>
+        <strong>Edit a Target:</strong><br>
+        <pre><code>Go to Configuration -> Targets -> Select Target -> Edit</pre></code>
+    </p>
+
+    <h2>6. Scan Configurations</h2>
+    <p>
+        <strong>Create a New Scan Config:</strong><br>
+        <pre><code>Go to Configuration -> Scan Configs -> New Scan Config</pre></code>
+    </p>
+    <p>
+        <strong>Edit a Scan Config:</strong><br>
+        <pre><code>Go to Configuration -> Scan Configs -> Select Config -> Edit</pre></code>
+    </p>
+
+    <h2>7. Viewing Scan Results</h2>
+    <p>
+        <strong>View Scan Results:</strong><br>
+        <pre><code>Go to Scans -> Results</pre></code>
+    </p>
+    <p>
+        <strong>Filter Results:</strong><br>
+        <pre><code>Use filters to narrow down results by severity, host, etc.</pre></code>
+    </p>
+
+    <h2>8. Reporting</h2>
+    <p>
+        <strong>Generate a Report:</strong><br>
+        <pre><code>Go to Scans -> Results -> Select Task -> Download Report</pre></code>
+    </p>
+    <p>
+        <strong>Customize Report Format:</strong><br>
+        <pre><code>Select desired format (PDF, CSV, XML, etc.)</pre></code>
+    </p>
+
+    <h2>9. Advanced Features</h2>
+    <p>
+        <strong>Scheduled Scans:</strong><br>
+        <pre><code>Go to Scans -> Tasks -> Select Task -> Schedule</pre></code>
+    </p>
+    <p>
+        <strong>Alerts and Notifications:</strong><br>
+        <pre><code>Go to Configuration -> Alerts -> New Alert</pre></code>
+    </p>
+
+    <h2>10. Troubleshooting</h2>
+    <p>
+        <strong>Check OpenVAS Version:</strong><br>
+        <pre><code>openvasmd --version</pre></code>
+    </p>
+    <p>
+        <strong>Debugging Output:</strong><br>
+        <pre><code>sudo openvasmd --debug</pre></code>
+    </p>
+    <p>
+        <strong>Verbose Output:</strong><br>
+        <pre><code>sudo openvasmd --verbose</pre></code>
+    </p>
+
+    <h2>11. Community and Resources</h2>
+    <p>
+        <strong>Official OpenVAS Documentation:</strong><br>
+        <a href="https://greenbone.github.io/openvas-docs/" target="_blank">OpenVAS Documentation</a>
+    </p>
+    <p>
+        <strong>OpenVAS Mailing List:</strong><br>
+        <a href="https://lists.wald.intevation.org/mailman/listinfo/openvas-discuss" target="_blank">OpenVAS Mailing List</a>
+    </p>
+    <p>
+        <strong>OpenVAS User Guide:</strong><br>
+        <a href="https://greenbone.github.io/openvas-docs/user/index.html" target="_blank">OpenVAS User Guide</a>
+    </p>
+
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+</body>
+</html>

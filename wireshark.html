@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireshark Detailed Guide</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a:focus {
+            transform: scale(1.1); /* Slightly enlarge the focused link */
+        }
+        a:hover {
+            color: #000;
+            background-color: #00ff00;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+    <h1>Wireshark Detailed Guide</h1>
+
+    <h2>1. Installation</h2>
+    <p>
+        <strong>Ubuntu/Debian:</strong><br>
+        <pre><code>sudo apt update</pre></code><br>
+        <pre><code>sudo apt install wireshark</pre></code>
+    </p>
+    <p>
+        <strong>CentOS/RHEL:</strong><br>
+        <pre><code>sudo yum install wireshark</pre></code>
+    </p>
+
+    <h2>2. Basic Usage</h2>
+    <p>
+        <strong>Launch Wireshark:</strong><br>
+        <pre><code>wireshark</pre></code>
+    </p>
+    <p>
+        <strong>Start Capturing Packets:</strong><br>
+        <pre><code>Select an interface and click "Start capturing packets"</pre></code>
+    </p>
+    <p>
+        <strong>Stop Capturing Packets:</strong><br>
+        <pre><code>Click "Stop capturing packets"</pre></code>
+    </p>
+
+    <h2>3. Capture Options</h2>
+    <p>
+        <strong>Capture Filter:</strong><br>
+        <pre><code>Enter a capture filter in the "Capture Options" dialog</pre></code>
+    </p>
+    <p>
+        <strong>Promiscuous Mode:</strong><br>
+        <pre><code>Enable promiscuous mode to capture all packets on the network</pre></code>
+    </p>
+
+    <h2>4. Display Filters</h2>
+    <p>
+        <strong>Filter by Protocol:</strong><br>
+        <pre><code>http</pre></code>
+    </p>
+    <p>
+        <strong>Filter by IP Address:</strong><br>
+        <pre><code>ip.addr == 192.168.1.1</pre></code>
+    </p>
+    <p>
+        <strong>Filter by Port:</strong><br>
+        <pre><code>tcp.port == 80</pre></code>
+    </p>
+
+    <h2>5. Analyzing Packets</h2>
+    <p>
+        <strong>Packet Details:</strong><br>
+        <pre><code>Click on a packet to view its details</pre></code>
+    </p>
+    <p>
+        <strong>Follow Stream:</strong><br>
+        <pre><code>Right-click on a packet and select "Follow" -> "TCP Stream"</pre></code>
+    </p>
+
+    <h2>6. Saving and Exporting</h2>
+    <p>
+        <strong>Save Capture File:</strong><br>
+        <pre><code>File -> Save As...</pre></code>
+    </p>
+    <p>
+        <strong>Export Specific Packets:</strong><br>
+        <pre><code>File -> Export Specified Packets...</pre></code>
+    </p>
+
+    <h2>7. Advanced Features</h2>
+    <p>
+        <strong>Statistics:</strong><br>
+        <pre><code>Statistics -> Summary</pre></code>
+    </p>
+    <p>
+        <strong>Protocol Hierarchy:</strong><br>
+        <pre><code>Statistics -> Protocol Hierarchy</pre></code>
+    </p>
+    <p>
+        <strong>Conversations:</strong><br>
+        <pre><code>Statistics -> Conversations</pre></code>
+    </p>
+
+    <h2>8. Troubleshooting</h2>
+    <p>
+        <strong>Check Wireshark Version:</strong><br>
+        <pre><code>wireshark --version</pre></code>
+    </p>
+    <p>
+        <strong>Debugging Output:</strong><br>
+        <pre><code>wireshark -d</pre></code>
+    </p>
+    <p>
+        <strong>Verbose Output:</strong><br>
+        <pre><code>wireshark -v</pre></code>
+    </p>
+
+    <h2>9. Community and Resources</h2>
+    <p>
+        <strong>Official Wireshark Documentation:</strong><br>
+        <a href="https://www.wireshark.org/docs/" target="_blank">Wireshark Documentation</a>
+    </p>
+    <p>
+        <strong>Wireshark Mailing List:</strong><br>
+        <a href="https://www.wireshark.org/lists/" target="_blank">Wireshark Mailing List</a>
+    </p>
+    <p>
+        <strong>Wireshark User Guide:</strong><br>
+        <a href="https://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark User Guide</a>
+    </p>
+
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+</body>
+</html>
