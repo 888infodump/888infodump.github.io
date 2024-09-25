@@ -18,23 +18,25 @@
             text-shadow: 1px 1px 3px #000;
             font-size: 2.5em;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
         }
-        li {
+        .button {
             background: rgba(40, 40, 40, 0.8);
-            margin: 8px 0;
             padding: 10px;
             border-radius: 5px;
             transition: background 0.3s;
+            text-align: center;
         }
-        li:hover {
+        .button:hover {
             background: rgba(50, 150, 50, 0.7);
         }
         a {
             text-decoration: none;
             color: #e0e0e0;
+            display: block;
         }
         a:hover {
             color: #000;
@@ -47,24 +49,24 @@
 <body>
 
     <h1>Security Tools</h1>
-    <ul>
-        <li><a href="aircrack-ng.html">Aircrack-ng</a></li>
-        <li><a href="ferret.html">Ferret</a></li>
-        <li><a href="ghidra.html">Ghidra</a></li>
-        <li><a href="hashcat.html">Hashcat</a></li>
-        <li><a href="hydra.html">Hydra</a></li>
-        <li><a href="john-the-ripper.html">John the Ripper</a></li>
-        <li><a href="metasploit.html">Metasploit</a></li>
-        <li><a href="mysql.html">MySQL</a></li>
-        <li><a href="netcat.html">Netcat</a></li>
-        <li><a href="nikto.html">Nikto</a></li>
-        <li><a href="nmap.html">Nmap</a></li>
-        <li><a href="openvas.html">OpenVAS</a></li>
-        <li><a href="pwdump.html">Pwdump</a></li>
-        <li><a href="social-engineering-toolkit.html">Social Engineering Toolkit</a></li>
-        <li><a href="sqlmap.html">SQLMap</a></li>
-        <li><a href="wireshark.html">Wireshark</a></li>
-    </ul>
+    <div class="container">
+        <div class="button"><a href="aircrack-ng.html">Aircrack-ng</a></div>
+        <div class="button"><a href="ferret.html">Ferret</a></div>
+        <div class="button"><a href="ghidra.html">Ghidra</a></div>
+        <div class="button"><a href="hashcat.html">Hashcat</a></div>
+        <div class="button"><a href="hydra.html">Hydra</a></div>
+        <div class="button"><a href="john-the-ripper.html">John the Ripper</a></div>
+        <div class="button"><a href="metasploit.html">Metasploit</a></div>
+        <div class="button"><a href="mysql.html">MySQL</a></div>
+        <div class="button"><a href="netcat.html">Netcat</a></div>
+        <div class="button"><a href="nikto.html">Nikto</a></div>
+        <div class="button"><a href="nmap.html">Nmap</a></div>
+        <div class="button"><a href="openvas.html">OpenVAS</a></div>
+        <div class="button"><a href="pwdump.html">Pwdump</a></div>
+        <div class="button"><a href="social-engineering-toolkit.html">Social Engineering Toolkit</a></div>
+        <div class="button"><a href="sqlmap.html">SQLMap</a></div>
+        <div class="button"><a href="wireshark.html">Wireshark</a></div>
+    </div>
 
 </body>
 </html>
