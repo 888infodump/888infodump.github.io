@@ -25,6 +25,12 @@
             gap: 10px;
             display: none; /* Hide by default */
         }
+        .container2 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            display: none; /* Hide by default */
+        }
         .button {
             background: rgba(40, 40, 40, 0.8);
             padding: 10px;
@@ -60,30 +66,59 @@
                 container.style.display = 'none';
             }
         }
+        function toggleButtons2() {
+            var container = document.querySelector('.container2');
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'grid';
+            } else {
+                container.style.display = 'none';
+            }
+        }
     </script>
 </head>
 <body>
 
     <h1 onclick="toggleButtons()">Security Tools</h1>
     <div class="container">
-        <div class="button"><a href="aircrack-ng.html">Aircrack-ng</a></div>
-        <div class="button"><a href="ferret.html">Ferret</a></div>
-        <div class="button"><a href="ghidra.html">Ghidra</a></div>
-        <div class="button"><a href="hashcat.html">Hashcat</a></div>
-        <div class="button"><a href="hydra.html">Hydra</a></div>
-        <div class="button"><a href="john-the-ripper.html">John the Ripper</a></div>
-        <div class="button"><a href="metasploit.html">Metasploit</a></div>
-        <div class="button"><a href="mysql.html">MySQL</a></div>
-        <div class="button"><a href="netcat.html">Netcat</a></div>
-        <div class="button"><a href="nikto.html">Nikto</a></div>
-        <div class="button"><a href="nmap.html">Nmap</a></div>
-        <div class="button"><a href="openvas.html">OpenVAS</a></div>
-        <div class="button"><a href="pwdump.html">Pwdump</a></div>
-        <div class="button"><a href="social-engineering-toolkit.html">Social Engineering Toolkit</a></div>
-        <div class="button"><a href="sqlmap.html">SQLMap</a></div>
-        <div class="button"><a href="wireshark.html">Wireshark</a></div>
-        <div class="button"><a href="kismet.html">Kismet</a></div>
+        <div class="button"><a href="sectools/aircrack-ng.html">Aircrack-ng</a></div>
+        <div class="button"><a href="sectools/ferret.html">Ferret</a></div>
+        <div class="button"><a href="sectools/ghidra.html">Ghidra</a></div>
+        <div class="button"><a href="sectools/hashcat.html">Hashcat</a></div>
+        <div class="button"><a href="sectools/hydra.html">Hydra</a></div>
+        <div class="button"><a href="sectools/john-the-ripper.html">John the Ripper</a></div>
+        <div class="button"><a href="sectools/metasploit.html">Metasploit</a></div>
+        <div class="button"><a href="sectools/mysql.html">MySQL</a></div>
+        <div class="button"><a href="sectools/netcat.html">Netcat</a></div>
+        <div class="button"><a href="sectools/nikto.html">Nikto</a></div>
+        <div class="button"><a href="sectools/nmap.html">Nmap</a></div>
+        <div class="button"><a href="sectools/openvas.html">OpenVAS</a></div>
+        <div class="button"><a href="sectools/pwdump.html">Pwdump</a></div>
+        <div class="button"><a href="sectools/social-engineering-toolkit.html">Social Engineering Toolkit</a></div>
+        <div class="button"><a href="sectools/sqlmap.html">SQLMap</a></div>
+        <div class="button"><a href="sectools/wireshark.html">Wireshark</a></div>
+        <div class="button"><a href="sectools/kismet.html">Kismet</a></div>
     </div>
+    <h1 onclick="toggleButtons2()">Placeholder</h1>
+    <div class="container2">
+        <div class="button"><a href="aircrack-ng.html">Placeholder</a></div>
+        <div class="button"><a href="ferret.html">Placeholder</a></div>
+        <div class="button"><a href="ghidra.html">Placeholder</a></div>
+        <div class="button"><a href="hashcat.html">Placeholder</a></div>
+        <div class="button"><a href="hydra.html">Placeholder</a></div>
+        <div class="button"><a href="john-the-ripper.html">Placeholder</a></div>
+        <div class="button"><a href="metasploit.html">Placeholder</a></div>
+        <div class="button"><a href="mysql.html">Placeholder</a></div>
+        <div class="button"><a href="netcat.html">Placeholder</a></div>
+        <div class="button"><a href="nikto.html">Placeholder</a></div>
+        <div class="button"><a href="nmap.html">Placeholder</a></div>
+        <div class="button"><a href="openvas.html">Placeholder</a></div>
+        <div class="button"><a href="pwdump.html">Placeholder</a></div>
+        <div class="button"><a href="social-engineering-toolkit.html">Placeholder</a></div>
+        <div class="button"><a href="sqlmap.html">Placeholder</a></div>
+        <div class="button"><a href="wireshark.html">Placeholder</a></div>
+        <div class="button"><a href="kismet.html">Placeholder</a></div>
+    </div>
+
 
 </body>
 </html>
