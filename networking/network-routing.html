@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Configuration & Routing - From Beginner to Expert</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 4px 2px 3px #000;
+        }
+        h2, h3 {
+            margin-top: 30px;
+        }
+        p {
+            margin: 20px 0;
+            padding: 5px 10px;
+            background: rgba(40, 40, 40, 0.9);
+            border-left: 5px solid #00ff00;
+        }
+        pre {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            background: #1e1e1e;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #00ff00;
+        }
+        ul {
+            margin: 20px;
+            list-style: square;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #109210;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+
+        <h1>Network Configuration & Routing - From Beginner to Expert</h1>
+
+        <h2>Introduction to Network Configuration and Routing</h2>
+        <p>Network configuration and routing are fundamental aspects of managing and optimizing network infrastructure. Proper configuration ensures efficient communication between devices, while routing directs data packets to their intended destinations. This guide will cover the basics of network configuration and routing, advanced topics, and best practices for network management.</p>
+
+        <h3>What is Network Configuration?</h3>
+        <p>Network configuration involves setting up and managing network devices such as routers, switches, and firewalls. This includes assigning IP addresses, configuring subnets, and setting up security protocols.</p>
+
+        <h3>Basic Network Configuration</h3>
+        <p>Here are the basic steps to configure a network:</p>
+        <ul>
+            <li><strong>Assign IP Addresses</strong>: Each device on the network needs a unique IP address.</li>
+            <li><strong>Configure Subnets</strong>: Divide the network into smaller subnets to manage traffic efficiently.</li>
+            <li><strong>Set Up DHCP</strong>: Use Dynamic Host Configuration Protocol (DHCP) to automatically assign IP addresses to devices.</li>
+            <li><strong>Configure DNS</strong>: Set up Domain Name System (DNS) servers to translate domain names into IP addresses.</li>
+        </ul>
+
+        <h3>What is Routing?</h3>
+        <p>Routing is the process of selecting paths in a network along which to send network traffic. Routers use routing protocols to determine the best path for data packets to travel from source to destination.</p>
+
+        <h3>Basic Routing Concepts</h3>
+        <p>Understanding the following basic routing concepts is crucial:</p>
+        <ul>
+            <li><strong>Routing Table</strong>: A data structure used by routers to store routing information.</li>
+            <li><strong>Static Routing</strong>: Manually configured routes that do not change.</li>
+            <li><strong>Dynamic Routing</strong>: Routes that are automatically updated based on network conditions.</li>
+            <li><strong>Default Gateway</strong>: The router that a device uses to send traffic to destinations outside its local network.</li>
+        </ul>
+
+        <h3>Common Routing Protocols</h3>
+        <p>Some common routing protocols include:</p>
+        <ul>
+            <li><strong>RIP (Routing Information Protocol)</strong>: A distance-vector routing protocol.</li>
+            <li><strong>OSPF (Open Shortest Path First)</strong>: A link-state routing protocol.</li>
+            <li><strong>BGP (Border Gateway Protocol)</strong>: A path-vector routing protocol used for inter-domain routing.</li>
+        </ul>
+
+        <h3>Configuring Static Routes</h3>
+        <p>Static routes are manually configured and do not change. Here’s an example of configuring a static route on a Cisco router:</p>
+        <pre><code>
+Router(config)# ip route 192.168.2.0 255.255.255.0 192.168.1.2
+        </code></pre>
+        <p>This command tells the router to send packets destined for the 192.168.2.0/24 network to the next-hop IP address 192.168.1.2.</p>
+
+        <h3>Configuring Dynamic Routing</h3>
+        <p>Dynamic routing protocols automatically update routes based on network conditions. Here’s an example of configuring OSPF on a Cisco router:</p>
+        <pre><code>
+Router(config)# router ospf 1
+Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
+        </code></pre>
+        <p>This command enables OSPF on the router and advertises the 192.168.1.0/24 network in area 0.</p>
+
+        <h3>Advanced Routing Techniques</h3>
+        <p>Advanced routing techniques include:</p>
+        <ul>
+            <li><strong>Policy-Based Routing (PBR)</strong>: Allows you to route traffic based on policies rather than destination IP addresses.</li>
+            <li><strong>Quality of Service (QoS)</strong>: Prioritizes network traffic to ensure critical applications receive the necessary bandwidth.</li>
+            <li><strong>Multicast Routing</strong>: Efficiently delivers data to multiple destinations simultaneously.</li>
+        </ul>
+
+        <h3>Troubleshooting Network Issues</h3>
+        <p>Effective troubleshooting is essential for maintaining network performance. Here are some common issues and how to troubleshoot them:</p>
+        <ul>
+            <li><strong>Connectivity Problems</strong>: Use `ping` and `traceroute` to diagnose connectivity issues.</li>
+            <li><strong>Routing Loops</strong>: Check routing tables for inconsistencies and use tools like `show ip route` to identify loops.</li>
+            <li><strong>Latency and Packet Loss</strong>: Use network monitoring tools to identify and resolve performance issues.</li>
+        </ul>
+
+        <h3>Practical Example: Configuring a Basic Network</h3>
+        <p>Here’s a step-by-step guide to configuring a basic network:</p>
+        <ul>
+            <li><strong>Assign IP Addresses</strong>: Configure IP addresses for all devices on the network.</li>
+            <li><strong>Set Up DHCP</strong>: Enable DHCP on the router to automatically assign IP addresses.</li>
+            <li><strong>Configure DNS</strong>: Set up a DNS server or use a public DNS service.</li>
+            <li><strong>Configure Routing</strong>: Set up static or dynamic routing as needed.</li>
+        </ul>
+
+        <h3>Security Considerations</h3>
+        <p>When configuring networks and routing, consider the following security best practices:</p>
+        <ul>
+            <li><strong>Use Strong Passwords</strong>: Protect network devices with strong, unique passwords.</li>
+            <li><strong>Enable Firewalls</strong>: Use firewalls to control inbound and outbound traffic.</li>
+            <li><strong>Regularly Update Software</strong>: Keep network devices and software up to date with the latest security patches.</li>
+        </ul>
+
+        <h3>Advanced Network Configuration Topics</h3>
+        <p>For those looking to explore further, consider the following advanced topics:</p>
+        <ul>
+            <li><strong>VLANs (Virtual LANs)</strong>: Segment networks into virtual LANs for better management and security.</li>
+            <li><strong>VPNs (Virtual Private Networks)</strong>: Securely connect remote users or networks.</li>
+            <li><strong>SDN (Software-Defined Networking)</strong>: Use software to manage and control network resources.</li>
+            <li><strong>Network Automation</strong>: Automate network configuration and management tasks using scripts and tools.</li>
+        </ul>
+
+        <h3>Additional Learning Resources</h3>
+        <p>To deepen your understanding of network configuration and routing, consider exploring the following resources:</p>
+        <ul>
+            <li><strong>Cisco Networking Academy</strong>: Comprehensive courses on networking and routing.</li>
+            <li><strong>CompTIA Network+ Certification</strong>: A vendor-neutral certification covering network configuration and troubleshooting.</li>
+            <li><strong>Network Protocols Handbook</strong>: A detailed reference on network protocols.</li>
+            <li><strong>Cybrary</strong>: Free online cybersecurity training resources.</li>
+            <li><strong>OWASP</strong>: The Open Web Application Security Project provides resources on web security best practices.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>Network configuration and routing are critical skills for network engineers and IT professionals. By mastering the basics and exploring advanced topics, you can ensure efficient and secure network communication. Keep learning and stay updated with the latest developments in network technology and security practices.</p>
+
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+    </div>
+</body>
+</html>

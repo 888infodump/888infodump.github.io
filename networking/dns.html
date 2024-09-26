@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS Basics - From Beginner to Expert</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 4px 2px 3px #000;
+        }
+        h2, h3 {
+            margin-top: 30px;
+        }
+        p {
+            margin: 20px 0;
+            padding: 5px 10px;
+            background: rgba(40, 40, 40, 0.9);
+            border-left: 5px solid #00ff00;
+        }
+        pre {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            background: #1e1e1e;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #00ff00;
+        }
+        ul {
+            margin: 20px;
+            list-style: square;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #109210;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+    <div class="container">
+        <h1>DNS Basics: From Beginner to Expert</h1>
+
+        <h2>Introduction to DNS</h2>
+        <p>The Domain Name System (DNS) is a foundational component of the internet. It translates human-readable domain names like <code>example.com</code> into machine-readable IP addresses such as <code>192.168.1.1</code>. This guide will take you through the basics of DNS, its role in the network, and advanced configurations and security considerations.</p>
+
+        <h3>What is DNS?</h3>
+        <p>DNS is a hierarchical and decentralized naming system that maps domain names to IP addresses. It allows users to access websites without remembering complex numerical addresses. Think of it as the phonebook of the internet, where a domain name is the contact name and the IP address is the phone number.</p>
+
+        <h3>How DNS Works</h3>
+        <p>When you type a URL into your browser, the following steps occur:</p>
+        <ul>
+            <li><strong>Step 1 - DNS Query</strong>: The browser checks its cache for the IP address corresponding to the domain name.</li>
+            <li><strong>Step 2 - Recursive Resolver</strong>: If not in cache, the request is sent to a DNS resolver, typically provided by your ISP.</li>
+            <li><strong>Step 3 - Root Name Server</strong>: The resolver queries one of the root name servers, which directs it to the appropriate Top-Level Domain (TLD) server (e.g., .com, .org).</li>
+            <li><strong>Step 4 - TLD Server</strong>: The TLD server directs the request to the authoritative name server for the specific domain.</li>
+            <li><strong>Step 5 - Authoritative Name Server</strong>: The authoritative server responds with the IP address for the domain, which the resolver then returns to the browser.</li>
+            <li><strong>Step 6 - Caching and Response</strong>: The IP address is cached for future requests, and the browser connects to the web server at that IP address.</li>
+        </ul>
+
+        <h3>DNS Record Types</h3>
+        <p>DNS records define how the domain is handled. The most common types include:</p>
+        <ul>
+            <li><strong>A Record</strong>: Maps a domain name to an IPv4 address.</li>
+            <li><strong>AAAA Record</strong>: Maps a domain name to an IPv6 address.</li>
+            <li><strong>CNAME Record</strong>: Canonical Name record that maps an alias name to the true domain name.</li>
+            <li><strong>MX Record</strong>: Specifies the mail servers responsible for receiving emails for the domain.</li>
+            <li><strong>TXT Record</strong>: Allows the addition of text-based information, often used for verification or security purposes.</li>
+            <li><strong>NS Record</strong>: Specifies the authoritative name servers for the domain.</li>
+            <li><strong>SOA Record</strong>: Start of Authority record, providing administrative information about the domain.</li>
+        </ul>
+
+        <h3>DNS Zones and Delegation</h3>
+        <p>A DNS zone is a segment of the domain namespace that is managed by a specific entity. Zones are created for administrative purposes, such as delegating a subdomain to another organization. Key concepts include:</p>
+        <ul>
+            <li><strong>Primary Zone</strong>: Contains the original read-write copy of the zone data.</li>
+            <li><strong>Secondary Zone</strong>: A read-only copy of the zone data, obtained through zone transfers.</li>
+            <li><strong>Forward and Reverse Zones</strong>: Forward zones map domain names to IP addresses, while reverse zones map IP addresses to domain names.</li>
+        </ul>
+
+        <h3>Practical Example: Setting Up DNS Records</h3>
+        <p>Let's set up a few common DNS records for <code>example.com</code>:</p>
+        <pre><code>
+        ; example.com zone file
+        $TTL    86400   ; Time-to-live for all records
+        @       IN      SOA     ns1.example.com. admin.example.com. (
+                          2023092301 ; Serial number (format: YYYYMMDDNN)
+                          3600       ; Refresh
+                          1800       ; Retry
+                          1209600    ; Expire
+                          86400      ; Minimum TTL
+                        )
+        @       IN      NS      ns1.example.com.
+        @       IN      NS      ns2.example.com.
+        @       IN      A       192.168.1.1         ; IPv4 address for the domain
+        www     IN      CNAME   example.com.        ; Alias for the domain
+        mail    IN      MX      10 mail.example.com.; Mail server priority 10
+        mail    IN      A       192.168.1.2         ; IPv4 address for mail server
+        </code></pre>
+
+        <h3>DNS Caching and TTL</h3>
+        <p>Caching plays a crucial role in DNS efficiency. The Time-to-Live (TTL) value specifies how long a record should be cached by DNS resolvers. A lower TTL results in more frequent queries to the authoritative servers, while a higher TTL reduces load but may serve outdated information during changes.</p>
+
+        <h3>Common DNS Tools</h3>
+        <p>Several tools can help you manage and troubleshoot DNS issues:</p>
+        <ul>
+            <li><strong>nslookup</strong>: Queries DNS servers and retrieves domain-related information.</li>
+            <li><strong>dig</strong>: More advanced querying tool for detailed DNS information.</li>
+            <li><strong>host</strong>: Simple tool to look up IP addresses and other records for a domain.</li>
+            <li><strong>dnsmasq</strong>: Lightweight DNS forwarder and DHCP server for small networks.</li>
+        </ul>
+
+        <h3>DNS Security: Understanding Attacks and Mitigations</h3>
+        <p>DNS is vulnerable to several types of attacks. Some common attacks and their mitigations are:</p>
+        <ul>
+            <li><strong>DNS Spoofing/Poisoning</strong>: Manipulating the resolver's cache to return a malicious IP address. Mitigation: Use DNSSEC to validate responses with digital signatures.</li>
+            <li><strong>Distributed Denial of Service (DDoS)</strong>: Flooding DNS servers with traffic. Mitigation: Implement rate limiting and use Anycast routing to distribute the load.</li>
+            <li><strong>NXDOMAIN Attack</strong>: Flooding the resolver with non-existent domains to exhaust resources. Mitigation: Use rate limiting and anomaly detection to identify and block these patterns.</li>
+        </ul>
+
+        <h3>Advanced DNS Concepts</h3>
+        <p>For those looking to delve deeper into DNS, explore the following topics:</p>
+        <ul>
+            <li><strong>DNSSEC (DNS Security Extensions)</strong>: Adds cryptographic signatures to DNS data to ensure authenticity and integrity.</li>
+            <li><strong>Split-Horizon DNS</strong>: Configuring different DNS responses based on the query source (e.g., internal vs. external users).</li>
+            <li><strong>DNS over HTTPS (DoH)</strong>: Encrypts DNS queries to protect user privacy.</li>
+            <li><strong>Anycast DNS</strong>: A routing technique where the same IP address is used across multiple servers, reducing latency and improving availability.</li>
+        <li><strong>DNS Tunneling</strong>: A technique for sending non-DNS data over DNS, often used for bypassing network restrictions or exfiltrating data. Learn how to detect and mitigate such attacks.</li>
+        </ul>
+
+        <h3>Additional Learning Resources</h3>
+        <p>To further enhance your DNS knowledge, consider exploring these resources:</p>
+        <ul>
+        <li><a href="https://www.iana.org/domains/root">IANA Root Servers</a>: Information on root name servers and the global DNS infrastructure.</li>
+        <li><a href="https://tools.ietf.org/html/rfc1035">RFC 1035</a>: Official specification for DNS (Domain Names - Implementation and Specification).</li>
+        <li><a href="https://dns.google/">Google Public DNS</a>: Learn how Google's DNS service works and how to use it for DNS queries.</li>
+        <li><a href="https://www.cloudflare.com/dns/">Cloudflare DNS</a>: Information on Cloudflare's DNS service and its features like DNSSEC and DoH.</li>
+        </ul>
+
+    <div class="container">
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+    </div>
+    </body>
+    </html>

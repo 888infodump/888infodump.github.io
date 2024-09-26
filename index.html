@@ -18,20 +18,18 @@
             text-shadow: 4px 2px 3px #000;
             font-size: 1.5em;
             cursor: pointer;
-            margin: 10px 0; /* Adjust vertical space */
+            margin: 10px 0;
             position: relative;
-            transform: translate(-40%, 0%); /* Fine-tune position */
         }
-        .container, .container2 {
-            display: grid; /* Use CSS Grid */
-            grid-template-columns: repeat(4, 1fr); /* 4 columns */
-            gap: 10px; /* Space between items */
-            display: none; /* Hide by default */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            display: none;
         }
-
         .button {
             background: rgba(40, 40, 40, 0.8);
-            padding: 20px; /* Increased padding for larger buttons */
+            padding: 20px;
             border-radius: 5px;
             transition: background 0.3s, transform 0.3s;
             text-align: center;
@@ -46,7 +44,7 @@
             transition: transform 0.3s;
         }
         a:focus {
-            transform: scale(1.2); /* Slightly enlarge the focused link */
+            transform: scale(1.2);
         }
         a:hover {
             color: #000;
@@ -56,16 +54,8 @@
         }
     </style>
     <script>
-        function toggleButtons() {
-            var container = document.querySelector('.container');
-            if (container.style.display === 'none' || container.style.display === '') {
-                container.style.display = 'grid';
-            } else {
-                container.style.display = 'none';
-            }
-        }
-        function toggleButtons2() {
-            var container = document.querySelector('.container2');
+        function toggleButtons(className) {
+            var container = document.querySelector('.' + className);
             if (container.style.display === 'none' || container.style.display === '') {
                 container.style.display = 'grid';
             } else {
@@ -76,8 +66,8 @@
 </head>
 <body>
 
-    <h1 onclick="toggleButtons()">Security Tools</h1>
-    <div class="container">
+    <h1 onclick="toggleButtons('security-tools')">Security Tools</h1>
+    <div class="container security-tools">
         <div class="button"><a href="sectools/aircrack-ng.html">Aircrack-ng</a></div>
         <div class="button"><a href="sectools/ferret.html">Ferret</a></div>
         <div class="button"><a href="sectools/ghidra.html">Ghidra</a></div>
@@ -96,27 +86,59 @@
         <div class="button"><a href="sectools/wireshark.html">Wireshark</a></div>
         <div class="button"><a href="sectools/kismet.html">Kismet</a></div>
     </div>
-    <h1 onclick="toggleButtons2()">Placeholder</h1>
-    <div class="container2">
-        <div class="button"><a href="aircrack-ng.html">Placeholder</a></div>
-        <div class="button"><a href="ferret.html">Placeholder</a></div>
-        <div class="button"><a href="ghidra.html">Placeholder</a></div>
-        <div class="button"><a href="hashcat.html">Placeholder</a></div>
-        <div class="button"><a href="hydra.html">Placeholder</a></div>
-        <div class="button"><a href="john-the-ripper.html">Placeholder</a></div>
-        <div class="button"><a href="metasploit.html">Placeholder</a></div>
-        <div class="button"><a href="mysql.html">Placeholder</a></div>
-        <div class="button"><a href="netcat.html">Placeholder</a></div>
-        <div class="button"><a href="nikto.html">Placeholder</a></div>
-        <div class="button"><a href="nmap.html">Placeholder</a></div>
-        <div class="button"><a href="openvas.html">Placeholder</a></div>
-        <div class="button"><a href="pwdump.html">Placeholder</a></div>
-        <div class="button"><a href="social-engineering-toolkit.html">Placeholder</a></div>
-        <div class="button"><a href="sqlmap.html">Placeholder</a></div>
-        <div class="button"><a href="wireshark.html">Placeholder</a></div>
-        <div class="button"><a href="kismet.html">Placeholder</a></div>
+
+    <h1 onclick="toggleButtons('networking')">Networking and Protocols</h1>
+    <div class="container networking">
+        <div class="button"><a href="networking/tcpip.html">TCP/IP Basics</a></div>
+        <div class="button"><a href="networking/dns.html">DNS</a></div>
+        <div class="button"><a href="networking/http.html">HTTP/HTTPS</a></div>
+        <div class="button"><a href="networking/packet-analysis.html">Packet Analysis with Wireshark</a></div>
+        <div class="button"><a href="networking/network-routing.html">Network Configuration & Routing</a></div>
     </div>
 
+    <h1 onclick="toggleButtons('osint')">OSINT and Social Engineering</h1>
+    <div class="container osint">
+        <div class="button"><a href="osint/social-media-analysis.html">Social Media Analysis</a></div>
+        <div class="button"><a href="osint/google-dorks.html">Google Dorks</a></div>
+        <div class="button"><a href="osint/data-scraping.html">Data Scraping</a></div>
+        <div class="button"><a href="osint/people-search.html">People Search Techniques</a></div>
+        <div class="button"><a href="osint/phishing.html">Phishing Strategies</a></div>
+    </div>
+
+    <h1 onclick="toggleButtons('malware-analysis')">Malware Analysis</h1>
+    <div class="container malware-analysis">
+        <div class="button"><a href="malware-analysis/sandbox-analysis.html">Sandbox Analysis</a></div>
+        <div class="button"><a href="malware-analysis/dynamic-analysis.html">Dynamic Analysis</a></div>
+        <div class="button"><a href="malware-analysis/static-analysis.html">Static Analysis</a></div>
+        <div class="button"><a href="malware-analysis/reverse-engineering.html">Reverse Engineering</a></div>
+    </div>
+
+    <h1 onclick="toggleButtons('cloud-security')">Cloud Security</h1>
+    <div class="container cloud-security">
+        <div class="button"><a href="cloud-security/aws.html">AWS Security</a></div>
+        <div class="button"><a href="cloud-security/azure.html">Azure Security</a></div>
+        <div class="button"><a href="cloud-security/gcp.html">GCP Security</a></div>
+        <div class="button"><a href="cloud-security/misconfiguration.html">Cloud Misconfiguration</a></div>
+        <div class="button"><a href="cloud-security/iam.html">IAM Best Practices</a></div>
+    </div>
+
+    <h1 onclick="toggleButtons('pentesting')">Penetration Testing and Exploit Development</h1>
+    <div class="container pentesting">
+        <div class="button"><a href="pentesting/web-vulnerabilities.html">Web Vulnerabilities</a></div>
+        <div class="button"><a href="pentesting/buffer-overflow.html">Buffer Overflows</a></div>
+        <div class="button"><a href="pentesting/exploit-development.html">Exploit Development</a></div>
+        <div class="button"><a href="pentesting/red-teaming.html">Red Teaming</a></div>
+        <div class="button"><a href="pentesting/wireless-attacks.html">Wireless Attacks</a></div>
+    </div>
+
+    <h1 onclick="toggleButtons('forensics')">Forensics and Incident Response</h1>
+    <div class="container forensics">
+        <div class="button"><a href="forensics/file-analysis.html">File Analysis</a></div>
+        <div class="button"><a href="forensics/memory-forensics.html">Memory Forensics</a></div>
+        <div class="button"><a href="forensics/log-analysis.html">Log Analysis</a></div>
+        <div class="button"><a href="forensics/network-forensics.html">Network Forensics</a></div>
+        <div class="button"><a href="forensics/incident-response.html">Incident Response Procedures</a></div>
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packet Analysis with Wireshark - From Beginner to Expert</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 4px 2px 3px #000;
+        }
+        h2, h3 {
+            margin-top: 30px;
+        }
+        p {
+            margin: 20px 0;
+            padding: 5px 10px;
+            background: rgba(40, 40, 40, 0.9);
+            border-left: 5px solid #00ff00;
+        }
+        pre {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            background: #1e1e1e;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #00ff00;
+        }
+        ul {
+            margin: 20px;
+            list-style: square;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #109210;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+
+        <h1>Packet Analysis with Wireshark - From Beginner to Expert</h1>
+
+        <h2>Introduction to Packet Analysis and Wireshark</h2>
+        <p>Packet analysis is the process of capturing and interpreting network traffic. Wireshark is a powerful, open-source tool used for network protocol analysis. It allows you to capture and interactively browse the traffic running on a computer network. This guide will cover the basics of packet analysis with Wireshark, advanced features, and troubleshooting techniques.</p>
+
+        <h3>What is Packet Analysis?</h3>
+        <p>Packet analysis involves examining the data packets that travel across a network. This can help diagnose network issues, detect security threats, and optimize network performance.</p>
+
+        <h3>Getting Started with Wireshark</h3>
+        <p>Wireshark is available for Windows, macOS, and Linux. Here’s how to get started:</p>
+        <ul>
+            <li><strong>Download and Install</strong>: Visit the <a href="https://www.wireshark.org/download.html">Wireshark download page</a> and install the appropriate version for your operating system.</li>
+            <li><strong>Launch Wireshark</strong>: Open Wireshark and select the network interface you want to capture packets from.</li>
+            <li><strong>Start Capture</strong>: Click the "Start" button to begin capturing packets.</li>
+        </ul>
+
+        <h3>Basic Packet Capture and Analysis</h3>
+        <p>Once you start capturing packets, Wireshark will display them in a three-pane window:</p>
+        <ul>
+            <li><strong>Packet List Pane</strong>: Shows a summary of each packet.</li>
+            <li><strong>Packet Details Pane</strong>: Displays detailed information about the selected packet.</li>
+            <li><strong>Packet Bytes Pane</strong>: Shows the raw data of the selected packet.</li>
+        </ul>
+
+        <h3>Filtering Packets</h3>
+        <p>Wireshark allows you to filter packets to focus on specific types of traffic. You can use display filters to show only the packets that match certain criteria.</p>
+        <ul>
+            <li><strong>Basic Filters</strong>: Use simple filters like `http` to show only HTTP packets or `tcp.port == 80` to show packets on port 80.</li>
+            <li><strong>Advanced Filters</strong>: Combine multiple criteria using logical operators (e.g., `tcp.port == 80 && ip.addr == 192.168.1.1`).</li>
+        </ul>
+
+        <h3>Common Protocols to Analyze</h3>
+        <p>Some common protocols you might analyze with Wireshark include:</p>
+        <ul>
+            <li><strong>HTTP/HTTPS</strong>: Web traffic.</li>
+            <li><strong>DNS</strong>: Domain Name System queries and responses.</li>
+            <li><strong>TCP/UDP</strong>: Transport layer protocols.</li>
+            <li><strong>ICMP</strong>: Internet Control Message Protocol (e.g., ping).</li>
+        </ul>
+
+        <h3>Understanding Packet Headers</h3>
+        <p>Each packet has a header that contains important information about the packet. Common headers include:</p>
+        <ul>
+            <li><strong>Ethernet Header</strong>: Contains source and destination MAC addresses.</li>
+            <li><strong>IP Header</strong>: Contains source and destination IP addresses.</li>
+            <li><strong>TCP/UDP Header</strong>: Contains source and destination ports.</li>
+        </ul>
+
+        <h3>Advanced Wireshark Features</h3>
+        <p>Wireshark offers several advanced features for in-depth analysis:</p>
+        <ul>
+            <li><strong>Capture Filters</strong>: Filter packets at the time of capture to reduce the amount of data collected.</li>
+            <li><strong>Follow Stream</strong>: View the entire conversation between two endpoints.</li>
+            <li><strong>Statistics</strong>: Generate various statistics about the captured packets, such as protocol hierarchy and conversation lists.</li>
+            <li><strong>Export Objects</strong>: Extract files and objects from the captured traffic.</li>
+        </ul>
+
+        <h3>Troubleshooting Network Issues</h3>
+        <p>Wireshark is invaluable for diagnosing network problems. Here are some common issues you can troubleshoot:</p>
+        <ul>
+            <li><strong>Slow Network Performance</strong>: Identify latency issues and packet loss.</li>
+            <li><strong>Connectivity Problems</strong>: Check for failed connection attempts and timeouts.</li>
+            <li><strong>Security Threats</strong>: Detect suspicious traffic patterns and unauthorized access attempts.</li>
+        </ul>
+
+        <h3>Practical Example: Analyzing HTTP Traffic</h3>
+        <p>To analyze HTTP traffic, follow these steps:</p>
+        <ul>
+            <li><strong>Start Capture</strong>: Begin capturing packets on the relevant network interface.</li>
+            <li><strong>Apply Filter</strong>: Use the display filter `http` to show only HTTP packets.</li>
+            <li><strong>Inspect Packets</strong>: Examine the packet details to see request and response headers and bodies.</li>
+        </ul>
+
+        <h3>Security Considerations</h3>
+        <p>When using Wireshark, consider the following security best practices:</p>
+        <ul>
+            <li><strong>Capture Sensibly</strong>: Only capture traffic on networks you have permission to monitor.</li>
+            <li><strong>Use Encryption</strong>: Ensure sensitive data is encrypted to protect it from being captured.</li>
+            <li><strong>Regularly Update Wireshark</strong>: Keep your Wireshark installation up to date to benefit from the latest security patches.</li>
+        </ul>
+
+        <h3>Advanced Packet Analysis Topics</h3>
+        <p>For those looking to explore further, consider the following advanced topics:</p>
+        <ul>
+            <li><strong>Deep Packet Inspection (DPI)</strong>: Analyze packet payloads for detailed inspection.</li>
+            <li><strong>Protocol Dissectors</strong>: Customize Wireshark to dissect proprietary protocols.</li>
+            <li><strong>Scripting with Lua</strong>: Automate tasks and extend Wireshark’s functionality using Lua scripts.</li>
+            <li><strong>Network Forensics</strong>: Use Wireshark for forensic analysis to investigate security incidents.</li>
+        </ul>
+
+        <h3>Additional Learning Resources</h3>
+        <p>To deepen your understanding of packet analysis with Wireshark, consider exploring the following resources:</p>
+        <ul>
+            <li><strong>Wireshark Documentation</strong>: Comprehensive guides and tutorials on Wireshark.</li>
+            <li><strong>Wireshark University</strong>: Online courses and certifications for Wireshark.</li>
+            <li><strong>Network Protocols Handbook</strong>: A detailed reference on network protocols.</li>
+            <li><strong>Cybrary</strong>: Free online cybersecurity training resources.</li>
+            <li><strong>OWASP</strong>: The Open Web Application Security Project provides resources on web security best practices.</li>
+        </ul>
+
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+    </div>
+</body>
+</html>

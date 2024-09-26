@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP/IP Basics - From Beginner to Expert</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 4px 2px 3px #000;
+        }
+        h2, h3 {
+            margin-top: 30px;
+        }
+        p {
+            margin: 20px 0;
+            padding: 5px 10px;
+            background: rgba(40, 40, 40, 0.9);
+            border-left: 5px solid #00ff00;
+        }
+        pre {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            background: #1e1e1e;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #00ff00;
+        }
+        ul {
+            margin: 20px;
+            list-style: square;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #109210;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+    <div class="container">
+        <h1>TCP/IP Basics: From Beginner to Expert</h1>
+
+        <h2>Introduction to TCP/IP</h2>
+        <p>The TCP/IP protocol suite forms the backbone of the internet and most local area networks. Understanding TCP/IP is essential for network engineers, system administrators, and security professionals. This guide will take you from the foundational principles of TCP/IP to advanced concepts, providing both theoretical knowledge and practical skills.</p>
+
+        <h3>What is TCP/IP?</h3>
+        <p>TCP/IP stands for Transmission Control Protocol/Internet Protocol. It is a suite of communication protocols used to connect network devices on the internet. It defines how data should be formatted, addressed, transmitted, routed, and received at the destination.</p>
+
+        <h3>Layers of the TCP/IP Model</h3>
+        <p>The TCP/IP model consists of four layers:</p>
+        <ul>
+            <li><strong>Application Layer</strong>: Provides network services directly to the user's applications (e.g., HTTP, FTP, SMTP).</li>
+            <li><strong>Transport Layer</strong>: Manages end-to-end communication (e.g., TCP, UDP).</li>
+            <li><strong>Internet Layer</strong>: Handles logical addressing and routing (e.g., IP, ICMP).</li>
+            <li><strong>Network Interface Layer</strong>: Defines the physical and data link protocols (e.g., Ethernet, ARP).</li>
+        </ul>
+
+        <h3>Layer-by-Layer Analysis</h3>
+        <h4>Application Layer</h4>
+        <p>This layer interacts directly with software applications to provide communication services. Protocols at this layer include:</p>
+        <ul>
+            <li><strong>HTTP/HTTPS</strong>: Used for web browsing.</li>
+            <li><strong>SMTP</strong>: Used for sending emails.</li>
+            <li><strong>FTP</strong>: File Transfer Protocol, used for transferring files.</li>
+        </ul>
+
+        <h4>Transport Layer</h4>
+        <p>The Transport Layer is responsible for ensuring data integrity and reliability. Key protocols include:</p>
+        <ul>
+            <li><strong>TCP (Transmission Control Protocol)</strong>: A connection-oriented protocol that guarantees data delivery by establishing a connection before sending packets.</li>
+            <li><strong>UDP (User Datagram Protocol)</strong>: A connectionless protocol that is faster but does not guarantee packet delivery, making it suitable for applications like VoIP or gaming.</li>
+        </ul>
+
+        <h4>Internet Layer</h4>
+        <p>The Internet Layer is responsible for logical addressing and routing. It includes the following protocols:</p>
+        <ul>
+            <li><strong>IP (Internet Protocol)</strong>: Defines IP addresses and handles packet routing.</li>
+            <li><strong>ICMP (Internet Control Message Protocol)</strong>: Used for error messages and operational information (e.g., `ping`).</li>
+        </ul>
+
+        <h4>Network Interface Layer</h4>
+        <p>This layer encompasses the data link and physical layers in the OSI model. It includes:</p>
+        <ul>
+            <li><strong>Ethernet</strong>: The most common LAN technology.</li>
+            <li><strong>ARP (Address Resolution Protocol)</strong>: Maps IP addresses to MAC addresses.</li>
+        </ul>
+
+        <h3>Understanding IP Addressing</h3>
+        <p>IP addresses are the core identifiers for devices in a network. They are of two main types: IPv4 and IPv6. Below is a quick overview:</p>
+        <ul>
+            <li><strong>IPv4</strong>: 32-bit address format, represented as four decimal numbers separated by dots (e.g., 192.168.1.1).</li>
+            <li><strong>IPv6</strong>: 128-bit address format, represented as eight groups of hexadecimal numbers separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).</li>
+        </ul>
+
+        <h3>Subnetting</h3>
+        <p>Subnetting allows the division of a network into smaller, manageable segments. This helps optimize network traffic and improve security. To calculate subnets, use the following formula:</p>
+        <pre><code>Number of Subnets = 2^number of subnet bits</code></pre>
+        <p>For example, given an IP address of `192.168.1.0/24`, you can divide it into multiple subnets by modifying the subnet mask:</p>
+        <pre><code>
+        192.168.1.0/26
+        192.168.1.64/26
+        192.168.1.128/26
+        192.168.1.192/26
+        </code></pre>
+
+        <h3>Routing and Switching</h3>
+        <p>Routers and switches are the primary devices used for directing traffic in a network. Key concepts include:</p>
+        <ul>
+            <li><strong>Routing Tables</strong>: Define paths for packets to travel through the network.</li>
+            <li><strong>Static vs Dynamic Routing</strong>: Static routes are manually configured, while dynamic routes adjust automatically based on algorithms like OSPF or BGP.</li>
+        </ul>
+
+        <h3>Common TCP/IP Tools</h3>
+        <p>Several tools can help you troubleshoot and analyze TCP/IP networks:</p>
+        <ul>
+            <li><strong>Ping</strong>: Verifies connectivity to a host.</li>
+            <li><strong>Traceroute</strong>: Displays the route packets take to a destination.</li>
+            <li><strong>Netstat</strong>: Shows active connections and listening ports.</li>
+            <li><strong>Wireshark</strong>: A packet analyzer for inspecting network traffic.</li>
+        </ul>
+
+        <h3>Advanced Topics</h3>
+        <p>For those looking to go beyond the basics, explore the following advanced topics:</p>
+        <ul>
+            <li><strong>TCP Congestion Control</strong>: Mechanisms like slow start, congestion avoidance, and fast recovery.</li>
+            <li><strong>IP Fragmentation and Reassembly</strong>: How large packets are broken down and reassembled.</li>
+            <li><strong>Quality of Service (QoS)</strong>: Prioritizing certain types of network traffic for better performance.</li>
+        </ul>
+
+        <h3>Additional Learning Resources</h3>
+        <p>To further enhance your TCP/IP knowledge, consider the following resources:</p>
+        <ul>
+            <li><a href="https://www.ietf.org/">IETF (Internet Engineering Task Force)</a>: Official standards and RFCs.</li>
+            <li><a href="https://www.coursera.org/courses?query=networking">Coursera Networking Courses</a></li>
+            <li><a href="https://www.wireshark.org/">Wireshark Documentation</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+</body>
+</html>
