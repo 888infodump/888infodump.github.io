@@ -15,25 +15,23 @@
         h1 {
             text-align: center;
             color: #00ff00;
-            text-shadow: 1px 1px 3px #000;
-            font-size: 2.5em;
+            text-shadow: 4px 2px 3px #000;
+            font-size: 1.5em;
             cursor: pointer;
+            margin: 10px 0; /* Adjust vertical space */
+            position: relative;
+            transform: translate(-40%, 0%); /* Fine-tune position */
         }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+        .container, .container2 {
+            display: grid; /* Use CSS Grid */
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 10px; /* Space between items */
             display: none; /* Hide by default */
         }
-        .container2 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            display: none; /* Hide by default */
-        }
+
         .button {
             background: rgba(40, 40, 40, 0.8);
-            padding: 10px;
+            padding: 20px; /* Increased padding for larger buttons */
             border-radius: 5px;
             transition: background 0.3s, transform 0.3s;
             text-align: center;
@@ -48,11 +46,11 @@
             transition: transform 0.3s;
         }
         a:focus {
-            transform: scale(1.1); /* Slightly enlarge the focused link */
+            transform: scale(1.2); /* Slightly enlarge the focused link */
         }
         a:hover {
             color: #000;
-            background-color: #00ff00;
+            background-color: #109210;
             padding: 2px;
             border-radius: 3px;
         }
