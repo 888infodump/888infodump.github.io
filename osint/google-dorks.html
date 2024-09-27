@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Dorks Guide - From Beginner to Expert</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 20px;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #00ff00;
+            text-shadow: 4px 2px 3px #000;
+        }
+        h2, h3 {
+            margin-top: 30px;
+        }
+        p {
+            margin: 20px 0;
+            padding: 5px 10px;
+            background: rgba(40, 40, 40, 0.9);
+            border-left: 5px solid #00ff00;
+        }
+        pre {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            background: #1e1e1e;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #00ff00;
+        }
+        ul {
+            margin: 20px;
+            list-style: square;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #109210;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        .button {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .button:hover {
+            background: rgba(50, 150, 50, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+
+        <h1>Google Dorks: From Beginner to Expert</h1>
+
+        <h2>Introduction to Google Dorks</h2>
+        <p>Google Dorks, also known as Google hacking, refers to the use of advanced search operators to find specific information that is not readily available on the surface web. This guide will help you understand how to use Google Dorks effectively, covering basic searches, advanced techniques, and ethical considerations.</p>
+
+        <h3>What are Google Dorks?</h3>
+        <p>Google Dorks are specific search queries that leverage Google’s search capabilities to uncover hidden or sensitive information on websites. These can include files, vulnerabilities, and other data that may be inadvertently exposed to search engines.</p>
+
+        <h3>Basic Search Operators</h3>
+        <p>Here are some basic search operators you can use with Google:</p>
+        <ul>
+            <li><strong>site:</strong> Limits results to a specific domain.<br>
+                <code>site:example.com</code>
+            </li>
+            <li><strong>filetype:</strong> Finds specific file types.<br>
+                <code>filetype:pdf</code>
+            </li>
+            <li><strong>intitle:</strong> Searches for keywords in the title.<br>
+                <code>intitle:"confidential"</code>
+            </li>
+            <li><strong>inurl:</strong> Searches for keywords in the URL.<br>
+                <code>inurl:login</code>
+            </li>
+            <li><strong>intext:</strong> Searches for keywords in the body of the page.<br>
+                <code>intext:"username and password"</code>
+            </li>
+        </ul>
+
+        <h3>Combining Search Operators</h3>
+        <p>You can combine multiple operators to refine your searches. For example:</p>
+        <pre><code>site:example.com filetype:pdf</code></pre>
+        <p>This will return PDF files hosted on the specified site.</p>
+
+        <h3>Advanced Google Dorks</h3>
+        <p>For more sophisticated searches, consider these advanced dorks:</p>
+        <ul>
+            <li><strong>allinurl:</strong> Finds results with all specified keywords in the URL.<br>
+                <code>allinurl: admin login</code>
+            </li>
+            <li><strong>allintitle:</strong> Finds pages with all specified keywords in the title.<br>
+                <code>allintitle: "secret files"</code>
+            </li>
+            <li><strong>cache:</strong> Views the cached version of a page.<br>
+                <code>cache:example.com</code>
+            </li>
+            <li><strong>related:</strong> Finds sites related to a specific URL.<br>
+                <code>related:example.com</code>
+            </li>
+        </ul>
+
+        <h3>Finding Vulnerable Websites</h3>
+        <p>You can use Google Dorks to locate potentially vulnerable sites. For example:</p>
+        <ul>
+            <li>Search for exposed admin panels:<br>
+                <code>inurl:admin intitle:login</code>
+            </li>
+            <li>Search for error messages that may expose server info:<br>
+                <code>intext:"SQL syntax" | "MySQL" | "error in"</code>
+            </li>
+        </ul>
+
+        <h3>Ethical Considerations</h3>
+        <p>While Google Dorks can be powerful, it’s essential to use them responsibly:</p>
+        <ul>
+            <li><strong>Respect Privacy:</strong> Do not exploit sensitive information found through Dorks.</li>
+            <li><strong>Legal Consequences:</strong> Understand the legal implications of accessing or using data improperly.</li>
+            <li><strong>Reporting Vulnerabilities:</strong> If you find vulnerabilities, consider reporting them to the website owner responsibly.</li>
+        </ul>
+
+        <h3>Practical Examples</h3>
+        <p>Here are some practical examples of Google Dorks:</p>
+        <ul>
+            <li>Find PDF files containing sensitive information:<br>
+                <code>site:gov filetype:pdf "confidential"</code>
+            </li>
+            <li>Locate exposed databases:<br>
+                <code>filetype:sql "create table"</code>
+            </li>
+            <li>Search for open directories:<br>
+                <code>intitle:index.of "parent directory"</code>
+            </li>
+        </ul>
+
+        <h3>Tools for Using Google Dorks</h3>
+        <p>Consider using the following tools to enhance your Google Dorking experience:</p>
+        <ul>
+            <li><strong>Google Dorker:</strong> A web-based tool that automates Dork searches.</li>
+            <li><strong>Github Repositories:</strong> Search for repositories that compile various Google Dorks.</li>
+            <li><strong>Automated Scripts:</strong> Use Python scripts to automate repetitive search tasks.</li>
+        </ul>
+
+        <h3>Learning More About Google Dorks</h3>
+        <p>To further improve your Google Dorking skills, explore the following resources:</p>
+        <ul>
+            <li><a href="https://www.exploit-db.com/google-hacking-database">Exploit-DB Google Hacking Database</a>: A comprehensive collection of Google Dorks.</li>
+            <li><a href="https://www.offensive-security.com/metasploit-unleashed/google-hacking/">Google Hacking Techniques</a>: A guide on Google hacking techniques.</li>
+            <li><a href="https://www.hackerone.com/blog/Google-Dorks-the-ultimate-guide-to-Google-hacking">HackerOne's Guide to Google Dorks</a>: An extensive guide on using Google Dorks effectively.</li>
+        </ul>
+
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+    </div>
+</body>
+</html>
