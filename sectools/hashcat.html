@@ -3,187 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hashcat Detailed Guide</title>
+    <title>Hashcat Guide - From Beginner to Expert</title>
     <style>
         body {
             font-family: 'Lucida Console', Monaco, monospace;
             margin: 20px;
             background-color: #1c1c1c;
             color: #e0e0e0;
-            line-height: 1.6;
+            line-height: 1.8;
         }
-        h1 {
+        h1, h2, h3 {
             text-align: center;
             color: #00ff00;
-            text-shadow: 1px 1px 3px #000;
-            font-size: 2.5em;
+            text-shadow: 4px 2px 3px #000;
         }
-        h2 {
+        h2, h3 {
+            margin-top: 30px;
+        }
+        p {
+            margin: 20px 0;
+            padding: 5px 10px;
+            background: rgba(40, 40, 40, 0.9);
+            border-left: 5px solid #00ff00;
+        }
+        pre {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            background: #1e1e1e;
+            padding: 2px 5px;
+            border-radius: 3px;
             color: #00ff00;
-            text-shadow: 1px 1px 3px #000;
+        }
+        ul {
+            margin: 20px;
+            list-style: square;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #109210;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
         }
         .button {
             background: rgba(40, 40, 40, 0.8);
             padding: 10px;
             border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
+            margin: 20px 0;
             text-align: center;
         }
         .button:hover {
             background: rgba(50, 150, 50, 0.7);
-        }
-        a {
-            text-decoration: none;
-            color: #e0e0e0;
-            display: block;
-            transition: transform 0.3s;
-        }
-        a:focus {
-            transform: scale(1.1); /* Slightly enlarge the focused link */
-        }
-        a:hover {
-            color: #000;
-            background-color: #00ff00;
-            padding: 2px;
-            border-radius: 3px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
-    <h1>Hashcat Detailed Guide</h1>
 
-    <h2>Introduction to Hashcat</h2>
-    <p>
-        Hashcat is a powerful password recovery tool that supports various hashing algorithms and offers multiple attack modes.
-    </p>
+        <h1>Hashcat Guide: From Beginner to Expert</h1>
 
-    <h2>Launching Hashcat</h2>
-    <p>
-        Open your terminal and navigate to the directory where Hashcat is installed.
-        To see the basic usage and options, run:
-    </p>
-    <p>
-        <pre><code>hashcat -h</code></pre>
-    </p>
+        <h2>Introduction to Hashcat</h2>
+        <p>Hashcat is one of the most powerful and versatile password recovery tools available. It supports various hash algorithms and attack modes, making it a go-to solution for penetration testers and security professionals. This guide covers the basic usage of Hashcat, common attack modes, advanced techniques, and optimizations for effective password cracking.</p>
 
-    <h2>Supported Hash Types</h2>
-    <p>
-        Identify the hash type you are working with. Use the following command to list supported hashes:
-    </p>
-    <p>
-        <pre><code>hashcat --help | grep hash</code></pre>
-    </p>
+        <h3>What is Hashcat?</h3>
+        <p>Hashcat is an open-source password cracking tool that uses a variety of methods to recover plaintext passwords from hashed values. Hashcat can utilize both CPU and GPU power to perform high-speed attacks, making it an essential tool for security testing and password recovery.</p>
 
-    <h2>Preparing Your Hash File</h2>
-    <p>
-        Create a text file containing the hashes you want to crack, one per line. For example:
-    </p>
-    <p>
-        <pre><code>
-            5f4dcc3b5aa765d61d8327deb882cf99<br>
-            6dcd4ce23d88e2ee9568ba546c007c63
-        </code></pre>
-    </p>
-
-    <h2>Selecting an Attack Mode</h2>
-    <p>
-        Hashcat supports several attack modes. Common modes include:
+        <h3>Hashing Algorithms Supported by Hashcat</h3>
+        <p>Hashcat supports a wide range of hashing algorithms, including:</p>
         <ul>
-            <li>Straight (dictionary attack)</li>
-            <li>Combination (combine words from multiple lists)</li>
-            <li>Brute-force (try all possible combinations)</li>
+            <li><strong>MD5</strong> (Message Digest Algorithm 5)</li>
+            <li><strong>SHA-1</strong> (Secure Hash Algorithm 1)</li>
+            <li><strong>SHA-256</strong>, <strong>SHA-512</strong></li>
+            <li><strong>Bcrypt</strong>, <strong>Argon2</strong></li>
+            <li><strong>NTLM</strong> (Windows New Technology LAN Manager)</li>
+            <li><strong>Kerberos</strong></li>
+            <li><strong>WPA/WPA2</strong> (Wi-Fi Protected Access)</li>
+            <li>and many others...</li>
         </ul>
-        Set the mode with the -a option:
-    </p>
-    <p>
-        <pre><code>hashcat -a 0 -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt;</code></pre>
-    </p>
 
-    <h2>Using a Wordlist</h2>
-    <p>
-        To crack hashes using a wordlist:
-    </p>
-    <p>
-        <pre><code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;path-to-wordlist&gt;</code></pre>
-    </p>
-    <p>
-        Example with a common wordlist:
-    </p>
-    <p>
-        <pre><code>hashcat -m 0 myhashes.txt /usr/share/wordlists/rockyou.txt</code></pre>
-    </p>
+        <h3>Installing Hashcat</h3>
+        <p>To install Hashcat, follow these steps:</p>
+        <ul>
+            <li><strong>On Linux</strong>:<br>
+                <pre><code>sudo apt-get update && sudo apt-get install hashcat</code></pre>
+            </li>
+            <li><strong>On Windows</strong>:<br>
+                Download the latest version of Hashcat from the <a href="https://hashcat.net/hashcat/">official Hashcat website</a> and extract the contents.
+            </li>
+            <li><strong>On macOS</strong>:<br>
+                Use Homebrew to install Hashcat:<br>
+                <pre><code>brew install hashcat</code></pre>
+            </li>
+        </ul>
 
-    <h2>Using Rules for Enhanced Cracking</h2>
-    <p>
-        Apply rules to modify the wordlist entries:
-    </p>
-    <p>
-        <pre><code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt; -r &lt;rules-file&gt;</code></pre>
-    </p>
-    <p>
-        Example:
-    </p>
-    <p>
-        <pre><code>hashcat -m 0 myhashes.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule</code></pre>
-    </p>
+        <h3>Basic Usage</h3>
+        <p>The basic syntax for running Hashcat is:</p>
+        <pre><code>hashcat -m [hash type] -a [attack mode] -o [output file] [hash file] [wordlist]</code></pre>
+        <p>For example, to run a dictionary attack on an MD5 hash using a wordlist:</p>
+        <pre><code>hashcat -m 0 -a 0 -o cracked.txt hashes.txt wordlist.txt</code></pre>
 
-    <h2>Brute-Force Attack</h2>
-    <p>
-        For brute-force cracking, specify a mask:
-    </p>
-    <p>
-        <pre><code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; -a 3 ?l?l?l?l</code></pre>
-    </p>
-    <p>
-        This example tries all combinations of four lowercase letters.
-    </p>
+        <h3>Hashcat Attack Modes</h3>
+        <p>Hashcat offers several attack modes, each suited for different scenarios:</p>
+        <ul>
+            <li><strong>-a 0 (Straight)</strong>: Dictionary attack using a wordlist.</li>
+            <li><strong>-a 1 (Combination)</strong>: Combines words from two wordlists.</li>
+            <li><strong>-a 3 (Brute-force)</strong>: Tries every possible combination of characters.</li>
+            <li><strong>-a 6 (Hybrid Wordlist + Mask)</strong>: Adds custom rules to a wordlist.</li>
+            <li><strong>-a 7 (Hybrid Mask + Wordlist)</strong>: Adds a wordlist to a custom mask.</li>
+        </ul>
 
-    <h2>Using Hashcat with GPUs</h2>
-    <p>
-        Hashcat can leverage GPUs for faster cracking. Ensure you have the necessary drivers installed.
-        Check available devices:
-    </p>
-    <p>
-        <pre><code>hashcat -D</code></pre>
-    </p>
+        <h3>Example: Cracking a WPA2 Hash</h3>
+        <p>To crack a WPA2 handshake captured in a file named <code>handshake.hccapx</code>, use the following command:</p>
+        <pre><code>hashcat -m 2500 -a 0 -o cracked.txt handshake.hccapx wordlist.txt</code></pre>
+        <p>Explanation:</p>
+        <ul>
+            <li><strong>-m 2500</strong>: Specifies WPA/WPA2 hash type.</li>
+            <li><strong>-a 0</strong>: Uses a dictionary attack.</li>
+            <li><strong>-o cracked.txt</strong>: Output file for recovered passwords.</li>
+            <li><strong>handshake.hccapx</strong>: Input file containing the captured handshake.</li>
+            <li><strong>wordlist.txt</strong>: The wordlist used for the attack.</li>
+        </ul>
 
-    <h2>Monitoring Progress</h2>
-    <p>
-        During cracking, Hashcat displays the progress, including the current speed and estimated time.
-    </p>
+        <h3>Optimizing Performance</h3>
+        <p>To maximize Hashcat's performance, consider the following tips:</p>
+        <ul>
+            <li><strong>Use GPU Acceleration</strong>: Hashcat can leverage GPU acceleration for high-speed cracking. Ensure you have the necessary GPU drivers installed (NVIDIA or AMD).</li>
+            <li><strong>Adjust Workload Profiles</strong>: Use the `-w` parameter to set the workload profile (1 to 4), where `-w 3` is ideal for most setups.<br>
+                <pre><code>hashcat -w 3 -m 0 hashes.txt wordlist.txt</code></pre>
+            </li>
+            <li><strong>Use Masks for Targeted Attacks</strong>: Masks allow you to specify character sets and patterns for brute-force attacks. For example, a mask for all lowercase letters with a length of 6:<br>
+                <pre><code>hashcat -m 0 -a 3 hashes.txt ?l?l?l?l?l?l</code></pre>
+            </li>
+            <li><strong>Enable Rules</strong>: Hashcat supports rule-based attacks to modify words in a wordlist (e.g., `leetspeak` transformations, appending numbers). Use the `-r` option to apply a ruleset:<br>
+                <pre><code>hashcat -m 0 -a 0 -r rules/best64.rule hashes.txt wordlist.txt</code></pre>
+            </li>
+        </ul>
 
-    <h2>Pausing and Resuming</h2>
-    <p>
-        You can pause the cracking process with <pre><code>s</code></pre> and resume it later using:
-    </p>
-    <p>
-        <pre><code>hashcat --restore</code></pre>
-    </p>
+        <h3>Advanced Techniques</h3>
+        <p>For more experienced users, consider using these advanced Hashcat techniques:</p>
+        <ul>
+            <li><strong>Hybrid Attacks</strong>: Combine wordlist and mask attacks to increase the chance of finding complex passwords.</li>
+            <li><strong>Custom Masks</strong>: Use masks like <code>?u?l?d</code> for upper case, lower case, and digits to limit the search space.</li>
+            <li><strong>Rule-Based Modifications</strong>: Create custom rules for specific patterns or password conventions used by the target organization.</
 
-    <h2>Outputting Results</h2>
-    <p>
-        Cracked passwords will be saved to a .pot file. You can specify a different output file with:
-    </p>
-    <p>
-        <pre><code>hashcat -m &lt;hash-type&gt; &lt;hash-file&gt; &lt;wordlist&gt; --outfile=&lt;output-file&gt;</code></pre>
-    </p>
+You said:
+continue from             <li><strong>Rule-Based Modifications</strong>: Create custom rules for specific patterns or password conventions used by the target organization.</
+ChatGPT said:
+GPT
 
-    <h2>Using Hashcat with the API</h2>
-    <p>
-        Hashcat also offers an API for integration with other tools and scripts.
-    </p>
+html
 
-    <h2>Getting Help and Documentation</h2>
-    <p>
-        Refer to the official Hashcat documentation for in-depth features and options:
-    </p>
-    <p>
-        <a href="https://hashcat.net/wiki/doku.php?id=start">https://hashcat.net/wiki/doku.php?id=start</a>
-    </p>
+            <li><strong>Rule-Based Modifications</strong>: Create custom rules for specific patterns or password conventions used by the target organization. For example, to create a rule that appends numbers 0-9 to each word in the wordlist, add the following line to a custom rule file:</li>
+            <pre><code>$[0-9]</code></pre>
+            <p>Then run Hashcat with the custom rule:</p>
+            <pre><code>hashcat -m 0 -a 0 -r custom.rule hashes.txt wordlist.txt</code></pre>
 
-    <div class="container">
-        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+            <li><strong>Cracking Password Hashes with Salts</strong>: Some hashes include additional data known as a salt to prevent precomputation attacks. For these hashes, use the salt information when performing attacks (e.g., Unix shadow files).</li>
+
+            <li><strong>Utilizing Multiple Hash Types</strong>: When unsure of the hash type, use the `--username` option and specify multiple hash types (e.g., `-m 1000` for NTLM and `-m 1800` for SHA512crypt).</li>
+            
+            <li><strong>Distributed Cracking</strong>: Use distributed systems like <a href="https://hashcat.net/wiki/doku.php?id=hashtopolis">Hashtopolis</a> or <a href="https://distributedcracking.net/">DistributedCracking.net</a> to split large tasks among multiple machines.</li>
+        </ul>
+
+        <h3>Hashcat Output and Analysis</h3>
+        <p>Hashcat outputs recovered passwords in a standard format: <code>hash:password</code>. You can analyze the cracked passwords to identify patterns and strengthen security policies. Use the `-o` option to specify the output file:</p>
+        <pre><code>hashcat -m 0 -a 0 hashes.txt wordlist.txt -o cracked.txt</code></pre>
+        <p>You can also enable <strong>show mode</strong> to display cracked passwords without running an attack:</p>
+        <pre><code>hashcat -m 0 --show hashes.txt</code></pre>
+
+        <h3>Common Hashcat Errors and Troubleshooting</h3>
+        <p>If you encounter errors while using Hashcat, consider the following troubleshooting tips:</p>
+        <ul>
+            <li><strong>Check GPU/CPU Drivers</strong>: Ensure your hardware drivers (NVIDIA/AMD) are up-to-date. Outdated drivers can lead to errors or reduced performance.</li>
+            <li><strong>Insufficient Memory</strong>: Some hash types, such as bcrypt or Argon2, are memory-intensive. Use a system with sufficient RAM or reduce the workload profile with `-w 1` to limit memory usage.</li>
+            <li><strong>Verify Hash Type</strong>: Incorrect hash types can lead to "Line-length exception" errors. Use the `--example-hashes` option to view sample hashes and verify the format.</li>
+            <li><strong>Permission Errors</strong>: If using GPU acceleration, run Hashcat with administrative privileges or root to ensure it can access GPU resources.</li>
+        </ul>
+
+        <h3>Additional Learning Resources</h3>
+        <p>To further explore and master Hashcat, consider the following resources:</p>
+        <ul>
+            <li><a href="https://hashcat.net/wiki/">Hashcat Official Wiki</a>: Comprehensive documentation and usage examples.</li>
+            <li><a href="https://hashcat.net/forum/">Hashcat Forums</a>: Community-driven support and discussions.</li>
+            <li><a href="https://github.com/hashcat/hashcat">Hashcat GitHub Repository</a>: Access the latest version, issue tracker, and source code.</li>
+            <li><a href="https://cryptohaze.com/">Cryptohaze</a>: Tools and utilities for additional hashing techniques.</li>
+        </ul>
+
+        <div class="container">
+            <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+        </div>
+    </div>
 </body>
 </html>
