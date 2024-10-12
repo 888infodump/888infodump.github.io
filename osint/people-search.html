@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Search Techniques - Hacking Methods and OSINT Tools</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+
+        <h1>People Search Techniques: Hacking Methods and OSINT Tools</h1>
+
+        <h2>Introduction to People Search and Hacking</h2>
+        <p>People search techniques overlap with hacking and open-source intelligence (OSINT) methods, often used to gather information about individuals from publicly accessible sources. In ethical hacking and cybersecurity, these methods can be leveraged to verify identities, check for vulnerabilities, or gather intelligence for penetration testing.</p>
+
+        <h3>Hacking and OSINT Techniques for People Search</h3>
+        <p>Hacking techniques used in people search often involve gathering publicly available information from websites, databases, and other digital footprints left by individuals. Here are some of the most commonly used hacking and OSINT techniques:</p>
+        <ul>
+            <li><strong>Google Dorking</strong>: A powerful method of using advanced Google search operators to uncover hidden data and files that are not normally visible. For example, <code>intext:"John Doe"</code> or <code>filetype:pdf</code> can find specific documents or mentions of individuals.</li>
+            <li><strong>Reverse Image Search</strong>: Tools like <a href="https://tineye.com/" target="_blank">TinEye</a> and Google Images allow you to upload a picture and trace it across the web, potentially revealing more about an individual’s online presence.</li>
+            <li><strong>Metadata Extraction</strong>: Many online files (PDFs, images, documents) contain hidden metadata, such as GPS coordinates, author names, and creation dates. Tools like <code>ExifTool</code> can extract this information, revealing additional personal details.</li>
+            <li><strong>Shodan</strong>: A search engine that hackers and cybersecurity professionals use to find devices connected to the internet. It can be used to find public cameras, IoT devices, and servers that may be tied to an individual’s online activity.</li>
+            <li><strong>Leakage Databases</strong>: When data breaches occur, personal data often ends up in leakage databases. Tools like <a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned</a> allow users to check if their email, password, or other personal information was exposed in a breach.</li>
+        </ul>
+
+        <h3>Advanced Google Dorking for People Search</h3>
+        <p>Google Dorking (or Google Hacking) is a method of using advanced search operators to uncover hidden information. Here are some useful search commands:</p>
+        <ul>
+            <li><code>site:example.com "John Doe"</code>: Searches for "John Doe" specifically within the domain <code>example.com</code>.</li>
+            <li><code>filetype:pdf "John Doe"</code>: Finds any PDF files mentioning "John Doe". You can change <code>filetype</code> to <code>doc</code>, <code>ppt</code>, or other formats.</li>
+            <li><code>inurl:"profile" "John Doe"</code>: Finds web pages where "John Doe" appears in the URL or in a profile page.</li>
+            <li><code>intitle:"John Doe"</code>: Limits searches to pages where "John Doe" appears in the title, often useful for finding blogs, articles, or forums.</li>
+            <li><code>cache:example.com</code>: Retrieves a cached version of a web page from Google’s servers, useful if content has been removed or altered.</li>
+        </ul>
+
+        <h3>Using Metadata for People Search</h3>
+        <p>Metadata often contains hidden information that can be exploited in hacking or OSINT investigations:</p>
+        <ul>
+            <li><strong>Document Metadata</strong>: PDFs, Word documents, and other file types may include metadata like the author's name, organization, or even the device used to create the file. Extract this information using tools like <code>ExifTool</code> or <code>FOCA</code>.</li>
+            <li><strong>Image Metadata</strong>: Many images, especially those taken with smartphones, contain EXIF data, which includes information such as the camera used, GPS coordinates, and timestamps. Tools like <code>ExifTool</code> or <code>Jeffrey's Image Metadata Viewer</code> can help extract this.</li>
+        </ul>
+
+        <h3>Shodan for People Search</h3>
+        <p><a href="https://www.shodan.io/" target="_blank">Shodan</a> is a specialized search engine used to find connected devices (cameras, routers, servers, etc.) that are exposed on the internet. Here’s how Shodan can assist in people searches:</p>
+        <ul>
+            <li><strong>Finding IoT Devices</strong>: Identify IP addresses linked to cameras or devices in someone's home or workplace. This can give insights into their digital footprint and online presence.</li>
+            <li><strong>Publicly Accessible Servers</strong>: Some people host personal servers or websites that are exposed on the internet. Shodan can help find such servers, offering a deeper look into the person's activities or affiliations.</li>
+            <li><strong>Vulnerabilities</strong>: Shodan identifies vulnerabilities in exposed devices, which may allow ethical hackers or cybersecurity professionals to notify individuals about security risks.</li>
+        </ul>
+
+        <h3>Reverse Username and Email Lookup</h3>
+        <p>One of the most effective hacking techniques for people search is performing reverse lookups on usernames or email addresses:</p>
+        <ul>
+            <li><strong>Username Lookup</strong>: Many people use the same or similar usernames across different platforms. Tools like <code>KnowEm</code> or <code>Namechk</code> allow you to check if a specific username exists on multiple websites.</li>
+            <li><strong>Email Lookup</strong>: Services like <code>Hunter.io</code> and <code>Have I Been Pwned</code> allow you to perform reverse email lookups, checking for accounts linked to email addresses or exposing data leaks involving the email.</li>
+        </ul>
+        <h3>Conclusion</h3>
+        <p>People search techniques that incorporate hacking and OSINT methods can yield powerful results when done responsibly. By using advanced search operators, reverse lookups, and metadata analysis, individuals can uncover valuable information about someone's online presence. However, it's crucial to operate within ethical and legal boundaries to respect privacy and avoid misuse. Ethical hacking principles should always guide the use of these techniques to ensure they are applied for constructive, legal purposes.</p>
+
+<div class="button"><a href="../index.html">GO BACK TO HOME</a></div>
+</div>
+</body>
+</html>
